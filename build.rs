@@ -53,7 +53,7 @@ fn main() {
 
         use cmake::Config;
         let dst = Config::new("clingo")
-            // .very_verbose(true)
+            .very_verbose(true)
             .profile("release")
             .define("CLINGO_BUILD_LIBRARY", "ON")
             .define("CLINGO_NO_VISIBILITY", "ON")
