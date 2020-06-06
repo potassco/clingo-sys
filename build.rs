@@ -73,7 +73,11 @@ fn main() {
         println!("cargo:rustc-link-lib=static=clasp");
         println!("cargo:rustc-link-lib=static=gringo");
         println!("cargo:rustc-link-lib=static=clingo");
-        println!("cargo:rustc-flags=-l dylib=stdc++");
+        if cfg!(target_os = "linux") {
+            println!("cargo:rustc-link-lib=dylib=stdc++");
+        } else if cfg!(target_os = "macos") {
+            println!("cargo:rustc-link-lib=dylib=c++");
+        }
     }
     //     println!("cargo:rustc-link-lib=python3.6m");
     //     -DWITH_PYTHON=1 -I/usr/include/python3.6m
