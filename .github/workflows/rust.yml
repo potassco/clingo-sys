@@ -7,6 +7,8 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v1
+      - name: update submodules
+        run: git submodule update --init --recursive
       - name: Install bison
         run: sudo apt-get install bison
       - name: Install re2c
@@ -19,6 +21,8 @@ jobs:
     runs-on: "macos-latest"
     steps:
       - uses: actions/checkout@v1
+      - name: update submodules
+        run: git submodule update --init --recursive
       - name: Install build dependencies
         run: |
           brew update
