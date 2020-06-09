@@ -71,8 +71,15 @@ fn main() {
             dst.join("build/lib").display()
         );
         
-
-        println!("cargo:rustc-link-lib=dylib=clingo");
+        if cfg!(target_os = "windows") {
+            println!("cargo:rustc-link-lib=dylib=clingo");
+        } else {
+            println!("cargo:rustc-link-lib=static=clingo");
+            println!("cargo:rustc-link-lib=static=reify");
+            println!("cargo:rustc-link-lib=static=potassco");
+            println!("cargo:rustc-link-lib=static=clasp");
+            println!("cargo:rustc-link-lib=static=gringo");
+        }
         
         if cfg!(target_os = "linux") {
             println!("cargo:rustc-link-lib=dylib=stdc++");
@@ -82,10 +89,7 @@ fn main() {
             println!("cargo:rustc-link-lib=dylib=stdc++");
         }
         
-        println!("cargo:rustc-link-lib=static=reify");
-        println!("cargo:rustc-link-lib=static=potassco");
-        println!("cargo:rustc-link-lib=static=clasp");
-        println!("cargo:rustc-link-lib=static=gringo");
+
     }
     //     println!("cargo:rustc-link-lib=python3.6m");
     //     -DWITH_PYTHON=1 -I/usr/include/python3.6m
