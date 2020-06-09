@@ -68,14 +68,15 @@ fn main() {
             dst.join("build/lib").display()
         );
 
-        println!("cargo:rustc-link-lib=static=reify");
         println!("cargo:rustc-link-lib=static=potassco");
         println!("cargo:rustc-link-lib=static=clasp");
         println!("cargo:rustc-link-lib=static=gringo");
         println!("cargo:rustc-link-lib=static=clingo");
         if cfg!(target_os = "linux") {
+            println!("cargo:rustc-link-lib=static=reify");
             println!("cargo:rustc-link-lib=dylib=stdc++");
         } else if cfg!(target_os = "macos") {
+            println!("cargo:rustc-link-lib=static=reify");
             println!("cargo:rustc-link-lib=dylib=c++");
         } else if cfg!(target_os = "windows") {
             println!("cargo:rustc-link-lib=dylib=stdc++");
