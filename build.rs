@@ -1,4 +1,5 @@
 extern crate pkg_config;
+use std::path::Path;
 
 fn main() {
     if cfg!(feature = "dynamic_linking") {
@@ -63,15 +64,15 @@ fn main() {
 
         println!(
             "cargo:rustc-link-search=native={}",
-            dst.join("build/lib").display()
+            dst.join(Path::new("build/lib")).display()
         );
         println!(
             "cargo:rustc-link-search=native={}",
-            dst.join("build/lib/Release").display()
+            dst.join(Path::new("build/lib/Release")).display()
         );
         eprintln!(
             "Setting library path for linker \n cargo:rustc-link-search=native={}",
-            dst.join("build/lib").display()
+            dst.join(Path::new("build/lib")).display()
         );
 
         println!("cargo:rustc-link-lib=static=clingo");
