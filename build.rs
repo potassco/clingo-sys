@@ -62,6 +62,7 @@ fn main() {
             .build();
 
         if cfg!(target_os = "windows") {
+        
             println!(
                 "cargo:rustc-link-search=native={}",
                 dst.join("build\\lib\\Release").display()
@@ -70,18 +71,23 @@ fn main() {
                 "Setting library path for linker \n cargo:rustc-link-search=native={}",
                 dst.join("build\\lib\\Release").display()
             );
+
+            println!("cargo:rustc-link-lib=static=libclingo");
+            println!("cargo:rustc-link-lib=static=libreify");
+            println!("cargo:rustc-link-lib=static=libpotassco");
+            println!("cargo:rustc-link-lib=static=libclasp");
+            println!("cargo:rustc-link-lib=static=libgringo");
         } else {
             println!(
                 "cargo:rustc-link-search=native={}",
                 dst.join("build/lib").display()
             );
+            println!("cargo:rustc-link-lib=static=clingo");
+            println!("cargo:rustc-link-lib=static=reify");
+            println!("cargo:rustc-link-lib=static=potassco");
+            println!("cargo:rustc-link-lib=static=clasp");
+            println!("cargo:rustc-link-lib=static=gringo");
         }
-
-        println!("cargo:rustc-link-lib=static=clingo");
-        println!("cargo:rustc-link-lib=static=reify");
-        println!("cargo:rustc-link-lib=static=potassco");
-        println!("cargo:rustc-link-lib=static=clasp");
-        println!("cargo:rustc-link-lib=static=gringo");
 
         if cfg!(target_os = "linux") {
             println!("cargo:rustc-link-lib=dylib=stdc++");
