@@ -49,4 +49,4 @@ jobs:
       - name: Build
         run: cargo build -vv
       - name: Run tests
-        run: cargo test -vv
+        run: cargo test --verbose

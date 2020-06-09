@@ -65,6 +65,10 @@ fn main() {
             "cargo:rustc-link-search=native={}",
             dst.join("build/lib").display()
         );
+        println!(
+            "cargo:rustc-link-search=native={}",
+            dst.join("build/lib/Release").display()
+        );
         eprintln!(
             "Setting library path for linker \n cargo:rustc-link-search=native={}",
             dst.join("build/lib").display()
