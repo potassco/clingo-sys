@@ -60,7 +60,7 @@ fn main() {
             .define("CLINGO_BUILD_APPS", "OFF")
             .define("CLINGO_BUILD_STATIC", "ON")
             .define("CMAKE_INSTALL_LIBDIR", "lib")
-            .build_target("libclingo")
+            .build_target("all")
             .build();
 
         println!(
