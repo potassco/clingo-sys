@@ -55,10 +55,9 @@ fn main() {
         let dst = Config::new("clingo")
             .very_verbose(true)
             .profile("release")
-            .define("CLINGO_BUILD_LIBRARY", "ON")
-            .define("CLINGO_NO_VISIBILITY", "ON")
-            .define("CLINGO_BUILD_APPS", "OFF")
+            .define("CLINGO_BUILD_SHARED", "OFF")
             .define("CLINGO_BUILD_STATIC", "ON")
+            .define("CLINGO_MANAGE_RPATH", "OFF")
             .define("CMAKE_INSTALL_LIBDIR", "lib")
             .build_target("libclingo")
             .build();
@@ -68,15 +67,14 @@ fn main() {
             dst.join("build/lib").display()
         );
 
+        println!("cargo:rustc-link-lib=static=reify");
         println!("cargo:rustc-link-lib=static=potassco");
         println!("cargo:rustc-link-lib=static=clasp");
         println!("cargo:rustc-link-lib=static=gringo");
         println!("cargo:rustc-link-lib=static=clingo");
         if cfg!(target_os = "linux") {
-            println!("cargo:rustc-link-lib=static=reify");
             println!("cargo:rustc-link-lib=dylib=stdc++");
         } else if cfg!(target_os = "macos") {
-            println!("cargo:rustc-link-lib=static=reify");
             println!("cargo:rustc-link-lib=dylib=c++");
         } else if cfg!(target_os = "windows") {
             println!("cargo:rustc-link-lib=dylib=stdc++");
