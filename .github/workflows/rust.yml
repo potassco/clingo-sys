@@ -43,7 +43,7 @@ jobs:
       - name: update submodules
         run: git submodule update --init --recursive
       - name: Install bison
-        run: choco install winflexbison3
+        run: choco install winflexbison
       - name: Install re2c
         run: choco install re2c
       - name: Build
