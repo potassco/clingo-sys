@@ -72,11 +72,11 @@ fn main() {
                 dst.join("build\\lib\\Release").display()
             );
 
-            println!("cargo:rustc-link-lib=static=libclingo");
-            println!("cargo:rustc-link-lib=static=libreify");
+            println!("cargo:rustc-link-lib=static=clingo");
+            println!("cargo:rustc-link-lib=static=reify");
             println!("cargo:rustc-link-lib=static=libpotassco");
             println!("cargo:rustc-link-lib=static=libclasp");
-            println!("cargo:rustc-link-lib=static=libgringo");
+            println!("cargo:rustc-link-lib=static=gringo");
         } else {
             println!(
                 "cargo:rustc-link-search=native={}",
