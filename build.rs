@@ -67,10 +67,6 @@ fn main() {
                 "cargo:rustc-link-search=native={}",
                 dst.join("build\\lib\\Release").display()
             );
-            eprintln!(
-                "Setting library path for linker \n cargo:rustc-link-search=native={}",
-                dst.join("build\\lib\\Release").display()
-            );
 
             println!("cargo:rustc-link-lib=static=clingo");
             println!("cargo:rustc-link-lib=static=reify");
@@ -93,8 +89,6 @@ fn main() {
             println!("cargo:rustc-link-lib=dylib=stdc++");
         } else if cfg!(target_os = "macos") {
             println!("cargo:rustc-link-lib=dylib=c++");
-        } else if cfg!(target_os = "windows") {
-            println!("cargo:rustc-link-lib=dylib=stdc++");
         }
     }
     //     println!("cargo:rustc-link-lib=python3.6m");
