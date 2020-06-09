@@ -62,18 +62,21 @@ fn main() {
             .build_target("libclingo")
             .build();
 
-        println!(
-            "cargo:rustc-link-search=native={}",
-            dst.join(Path::new("build/lib")).display()
-        );
-        println!(
-            "cargo:rustc-link-search=native={}",
-            dst.join(Path::new("build/lib/Release")).display()
-        );
-        eprintln!(
-            "Setting library path for linker \n cargo:rustc-link-search=native={}",
-            dst.join(Path::new("build/lib")).display()
-        );
+        if cfg!(target_os = "windows") {
+            println!(
+                "cargo:rustc-link-search=native={}",
+                dst.join("build\\lib\\Release").display()
+            );
+            eprintln!(
+                "Setting library path for linker \n cargo:rustc-link-search=native={}",
+                dst.join("build\\lib\\Release")).display()
+            );
+        } else {
+            println!(
+                "cargo:rustc-link-search=native={}",
+                dst.join(Path::new("build/lib")).display()
+            );
+        }
 
         println!("cargo:rustc-link-lib=static=clingo");
         println!("cargo:rustc-link-lib=static=reify");
