@@ -72,7 +72,7 @@ fn main() {
         );
         
 
-        println!("cargo:rustc-link-lib=static=clingo");
+        println!("cargo:rustc-link-lib=dylib=clingo");
         
         if cfg!(target_os = "linux") {
             println!("cargo:rustc-link-lib=dylib=stdc++");
