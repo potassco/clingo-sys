@@ -62,12 +62,10 @@ fn main() {
             .build();
 
         if cfg!(target_os = "windows") {
-        
             println!(
                 "cargo:rustc-link-search=native={}",
                 dst.join("build\\lib\\Release").display()
             );
-
             println!("cargo:rustc-link-lib=static=clingo");
             println!("cargo:rustc-link-lib=static=reify");
             println!("cargo:rustc-link-lib=static=libpotassco");
