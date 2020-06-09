@@ -44,7 +44,7 @@ fn main() {
         //     .generate()
         //     .expect("Unable to generate bindings");
 
-        // // Write the bindings to the bindings.rs file.
+        // write the bindings to the bindings.rs file.
         // bindings
         //     .write_to_file("bindings.rs")
         //     .expect("Couldn't write bindings!");
@@ -58,7 +58,6 @@ fn main() {
             .define("CLINGO_BUILD_SHARED", "OFF")
             .define("CLINGO_BUILD_STATIC", "ON")
             .define("CLINGO_MANAGE_RPATH", "OFF")
-            .define("CMAKE_INSTALL_LIBDIR", "lib")
             .build_target("libclingo")
             .build();
 
@@ -70,17 +69,13 @@ fn main() {
             "Setting library path for linker \n cargo:rustc-link-search=native={}",
             dst.join("build/lib").display()
         );
-        
-        if cfg!(target_os = "windows") {
-            println!("cargo:rustc-link-lib=dylib=clingo");
-        } else {
-            println!("cargo:rustc-link-lib=static=clingo");
-            println!("cargo:rustc-link-lib=static=reify");
-            println!("cargo:rustc-link-lib=static=potassco");
-            println!("cargo:rustc-link-lib=static=clasp");
-            println!("cargo:rustc-link-lib=static=gringo");
-        }
-        
+
+        println!("cargo:rustc-link-lib=static=clingo");
+        println!("cargo:rustc-link-lib=static=reify");
+        println!("cargo:rustc-link-lib=static=potassco");
+        println!("cargo:rustc-link-lib=static=clasp");
+        println!("cargo:rustc-link-lib=static=gringo");
+
         if cfg!(target_os = "linux") {
             println!("cargo:rustc-link-lib=dylib=stdc++");
         } else if cfg!(target_os = "macos") {
@@ -88,8 +83,6 @@ fn main() {
         } else if cfg!(target_os = "windows") {
             println!("cargo:rustc-link-lib=dylib=stdc++");
         }
-        
-
     }
     //     println!("cargo:rustc-link-lib=python3.6m");
     //     -DWITH_PYTHON=1 -I/usr/include/python3.6m
