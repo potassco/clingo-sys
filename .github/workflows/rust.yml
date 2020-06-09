@@ -47,6 +47,6 @@ jobs:
       - name: Install re2c
         run: choco install re2c
       - name: Build
-        run: cargo build --verbose
+        run: cargo build -vv
       - name: Run tests
-        run: cargo test --verbose
+        run: cargo test -vv
