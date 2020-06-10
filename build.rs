@@ -54,34 +54,26 @@ fn main() {
         use cmake::Config;
         let dst = Config::new("clingo")
             .very_verbose(true)
-            .profile("release")
             .define("CLINGO_BUILD_SHARED", "OFF")
             .define("CLINGO_BUILD_STATIC", "ON")
             .define("CLINGO_MANAGE_RPATH", "OFF")
-            .build_target("libclingo")
+            .define("CLINGO_BUILD_WITH_PYTHON", "OFF")
+            .define("CLINGO_BUILD_WITH_LUA", "OFF")
+            .define("CLINGO_INSTALL_LIB", "ON")
+            .define("CLINGO_BUILD_APPS", "OFF")
+            .define("CLASP_BUILD_APP", "OFF")
             .build();
 
-        if cfg!(target_os = "windows") {
-            println!(
-                "cargo:rustc-link-search=native={}",
-                dst.join("build\\lib\\Release").display()
-            );
-            println!("cargo:rustc-link-lib=static=clingo");
-            println!("cargo:rustc-link-lib=static=reify");
-            println!("cargo:rustc-link-lib=static=libpotassco");
-            println!("cargo:rustc-link-lib=static=libclasp");
-            println!("cargo:rustc-link-lib=static=gringo");
-        } else {
-            println!(
-                "cargo:rustc-link-search=native={}",
-                dst.join("build/lib").display()
-            );
-            println!("cargo:rustc-link-lib=static=clingo");
-            println!("cargo:rustc-link-lib=static=reify");
-            println!("cargo:rustc-link-lib=static=potassco");
-            println!("cargo:rustc-link-lib=static=clasp");
-            println!("cargo:rustc-link-lib=static=gringo");
-        }
+        println!(
+            "cargo:rustc-link-search=native={}",
+            dst.join("lib").display()
+        );
+
+        println!("cargo:rustc-link-lib=static=clingo");
+        println!("cargo:rustc-link-lib=static=reify");
+        println!("cargo:rustc-link-lib=static=potassco");
+        println!("cargo:rustc-link-lib=static=clasp");
+        println!("cargo:rustc-link-lib=static=gringo");
 
         if cfg!(target_os = "linux") {
             println!("cargo:rustc-link-lib=dylib=stdc++");
