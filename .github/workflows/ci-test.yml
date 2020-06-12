@@ -1,4 +1,4 @@
-name: Rust
+name: CI Test
 
 on: [push]
 
@@ -36,3 +36,17 @@ jobs:
         run: |
           export PATH="/usr/local/opt/bison@2.7/bin:$PATH"
           cargo test --verbose
+  build-windows:
+    runs-on: "windows-latest"
+    steps:
+      - uses: actions/checkout@v1
+      - name: update submodules
+        run: git submodule update --init --recursive
+      - name: Install bison
+        run: choco install winflexbison
+      - name: Install re2c
+        run: choco install re2c
+      - name: Build
+        run: cargo build -vv
+      - name: Run tests
+        run: cargo test --verbose

@@ -44,7 +44,7 @@ fn main() {
         //     .generate()
         //     .expect("Unable to generate bindings");
 
-        // // Write the bindings to the bindings.rs file.
+        // write the bindings to the bindings.rs file.
         // bindings
         //     .write_to_file("bindings.rs")
         //     .expect("Couldn't write bindings!");
@@ -53,26 +53,28 @@ fn main() {
 
         use cmake::Config;
         let dst = Config::new("clingo")
-            // .very_verbose(true)
-            .profile("release")
-            .define("CLINGO_BUILD_LIBRARY", "ON")
-            .define("CLINGO_NO_VISIBILITY", "ON")
-            .define("CLINGO_BUILD_APPS", "OFF")
+            .very_verbose(true)
+            .define("CLINGO_BUILD_SHARED", "OFF")
             .define("CLINGO_BUILD_STATIC", "ON")
-            .define("CMAKE_INSTALL_LIBDIR", "lib")
-            .build_target("libclingo")
+            .define("CLINGO_MANAGE_RPATH", "OFF")
+            .define("CLINGO_BUILD_WITH_PYTHON", "OFF")
+            .define("CLINGO_BUILD_WITH_LUA", "OFF")
+            .define("CLINGO_INSTALL_LIB", "ON")
+            .define("CLINGO_BUILD_APPS", "OFF")
+            .define("CLASP_BUILD_APP", "OFF")
             .build();
 
         println!(
             "cargo:rustc-link-search=native={}",
-            dst.join("build/lib").display()
+            dst.join("lib").display()
         );
 
+        println!("cargo:rustc-link-lib=static=clingo");
         println!("cargo:rustc-link-lib=static=reify");
         println!("cargo:rustc-link-lib=static=potassco");
         println!("cargo:rustc-link-lib=static=clasp");
         println!("cargo:rustc-link-lib=static=gringo");
-        println!("cargo:rustc-link-lib=static=clingo");
+
         if cfg!(target_os = "linux") {
             println!("cargo:rustc-link-lib=dylib=stdc++");
         } else if cfg!(target_os = "macos") {
