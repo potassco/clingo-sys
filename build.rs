@@ -1,19 +1,9 @@
-extern crate pkg_config;
-
+use std::env;
 fn main() {
     if cfg!(feature = "dynamic_linking") {
-        match pkg_config::Config::new()
-            .atleast_version("5.5.0")
-            .probe("clingo")
-        {
-            Ok(_lib) => {
-                println!("cargo:rustc-link-lib=dylib=clingo");
-            }
-            Err(e) => {
-                println!("\nError: {}", e);
-                panic!(e);
-            }
-        }
+        let path = env::var("CLINGO_LIBRARY_PATH").unwrap();
+        println!("cargo:rustc-link-search=native={}", path);
+        println!("cargo:rustc-link-lib=dylib=clingo");
     } else {
         // update clingo submodule
         // git submodule update --init --recursive
