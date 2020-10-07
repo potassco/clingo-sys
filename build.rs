@@ -1,7 +1,7 @@
 use std::env;
 fn main() {
     if cfg!(feature = "dynamic_linking") {
-        let path = env::var("CLINGO_LIBRARY_PATH").unwrap();
+        let path = env::var("CLINGO_LIBRARY_PATH").expect("$CLINGO_LIBRARY_PATH should be defined");;
         println!("cargo:rustc-link-search=native={}", path);
         println!("cargo:rustc-link-lib=dylib=clingo");
     } else {
