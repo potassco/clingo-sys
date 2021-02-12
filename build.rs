@@ -1,44 +1,50 @@
 use std::env;
 fn main() {
+    // update clingo submodule
+    // git submodule update --init --recursive
+
+    // // create bindings
+    // let bindings = bindgen::Builder::default()
+    //     .header("clingo/libclingo/clingo.h")
+    //     .no_copy("clingo_solve_control")
+    //     .no_copy("clingo_model")
+    //     .no_copy("clingo_solve_handle")
+    //     .no_copy("clingo_program_builder")
+    //     .no_copy("clingo_control")
+    //     .no_copy("clingo_options")
+    //     .no_copy("clingo_symbolic_atoms")
+    //     .no_copy("clingo_theory_atoms")
+    //     .no_copy("clingo_assignment")
+    //     .no_copy("clingo_propagate_init")
+    //     .no_copy("clingo_propagate_control")
+    //     .no_copy("clingo_backend")
+    //     .no_copy("clingo_configuration")
+    //     .no_copy("clingo_statistic")
+    //     // .no_copy("clingo_ast_term")
+    //     // .no_copy("clingo_ast_function")
+    //     // .no_copy("clingo_ast_pool")
+    //     // .no_copy("clingo_ast_csp_product_term_t")
+    //     .blacklist_type("max_align_t") // https://github.com/rust-lang/rust-bindgen/issues/550
+    //     .size_t_is_usize(true)
+    //     .generate()
+    //     .expect("Unable to generate bindings");
+
+    // // write the bindings to the bindings.rs file.
+    // bindings
+    //     .write_to_file("bindings.rs")
+    //     .expect("Couldn't write bindings!");
+
     if cfg!(feature = "dynamic_linking") {
         let path = env::var("CLINGO_LIBRARY_PATH").expect("$CLINGO_LIBRARY_PATH should be defined");
         println!("cargo:rustc-link-search=native={}", path);
         println!("cargo:rustc-link-lib=dylib=clingo");
+        if cfg!(feature = "dl_theory") {
+            let path = env::var("CLINGO_DL_LIBRARY_PATH")
+                .expect("$CLINGO_DL_LIBRARY_PATH should be defined");
+            println!("cargo:rustc-link-search=native={}", path);
+            println!("cargo:rustc-link-lib=dylib=clingo-dl");
+        }
     } else {
-        // update clingo submodule
-        // git submodule update --init --recursive
-
-        // create bindings
-        // let bindings = bindgen::Builder::default()
-        //     .header("clingo/libclingo/clingo.h")
-        //     .no_copy("clingo_solve_control")
-        //     .no_copy("clingo_model")
-        //     .no_copy("clingo_solve_handle")
-        //     .no_copy("clingo_program_builder")
-        //     .no_copy("clingo_control")
-        //     .no_copy("clingo_options")
-        //     .no_copy("clingo_symbolic_atoms")
-        //     .no_copy("clingo_theory_atoms")
-        //     .no_copy("clingo_assignment")
-        //     .no_copy("clingo_propagate_init")
-        //     .no_copy("clingo_propagate_control")
-        //     .no_copy("clingo_backend")
-        //     .no_copy("clingo_configuration")
-        //     .no_copy("clingo_statistic")
-        //     // .no_copy("clingo_ast_term")
-        //     // .no_copy("clingo_ast_function")
-        //     // .no_copy("clingo_ast_pool")
-        //     // .no_copy("clingo_ast_csp_product_term_t")
-        //     .blacklist_type("max_align_t") // https://github.com/rust-lang/rust-bindgen/issues/550
-        //     .size_t_is_usize(true)
-        //     .generate()
-        //     .expect("Unable to generate bindings");
-
-        // write the bindings to the bindings.rs file.
-        // bindings
-        //     .write_to_file("bindings.rs")
-        //     .expect("Couldn't write bindings!");
-
         // build clingo for static linking
 
         use cmake::Config;
