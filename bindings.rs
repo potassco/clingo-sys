@@ -259,22 +259,22 @@ fn bindgen_test_layout_clingo_weighted_literal() {
 #[doc = "! A Literal with an associated weight."]
 pub type clingo_weighted_literal_t = clingo_weighted_literal;
 #[doc = "!< successful API calls"]
-pub const clingo_error_clingo_error_success: clingo_error = 0;
+pub const clingo_error_e_clingo_error_success: clingo_error_e = 0;
 #[doc = "!< errors only detectable at runtime like invalid input"]
-pub const clingo_error_clingo_error_runtime: clingo_error = 1;
+pub const clingo_error_e_clingo_error_runtime: clingo_error_e = 1;
 #[doc = "!< wrong usage of the clingo API"]
-pub const clingo_error_clingo_error_logic: clingo_error = 2;
+pub const clingo_error_e_clingo_error_logic: clingo_error_e = 2;
 #[doc = "!< memory could not be allocated"]
-pub const clingo_error_clingo_error_bad_alloc: clingo_error = 3;
+pub const clingo_error_e_clingo_error_bad_alloc: clingo_error_e = 3;
 #[doc = "!< errors unrelated to clingo"]
-pub const clingo_error_clingo_error_unknown: clingo_error = 4;
+pub const clingo_error_e_clingo_error_unknown: clingo_error_e = 4;
 #[doc = "! Enumeration of error codes."]
 #[doc = "!"]
 #[doc = "! @note Errors can only be recovered from if explicitly mentioned; most"]
 #[doc = "! functions do not provide strong exception guarantees.  This means that in"]
 #[doc = "! case of errors associated objects cannot be used further.  If such an"]
 #[doc = "! object has a free function, this function can and should still be called."]
-pub type clingo_error = ::std::os::raw::c_uint;
+pub type clingo_error_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_error."]
 pub type clingo_error_t = ::std::os::raw::c_int;
 extern "C" {
@@ -300,21 +300,21 @@ extern "C" {
     pub fn clingo_set_error(code: clingo_error_t, message: *const ::std::os::raw::c_char);
 }
 #[doc = "!< undefined arithmetic operation or weight of aggregate"]
-pub const clingo_warning_clingo_warning_operation_undefined: clingo_warning = 0;
+pub const clingo_warning_e_clingo_warning_operation_undefined: clingo_warning_e = 0;
 #[doc = "!< to report multiple errors; a corresponding runtime error is raised later"]
-pub const clingo_warning_clingo_warning_runtime_error: clingo_warning = 1;
+pub const clingo_warning_e_clingo_warning_runtime_error: clingo_warning_e = 1;
 #[doc = "!< undefined atom in program"]
-pub const clingo_warning_clingo_warning_atom_undefined: clingo_warning = 2;
+pub const clingo_warning_e_clingo_warning_atom_undefined: clingo_warning_e = 2;
 #[doc = "!< same file included multiple times"]
-pub const clingo_warning_clingo_warning_file_included: clingo_warning = 3;
+pub const clingo_warning_e_clingo_warning_file_included: clingo_warning_e = 3;
 #[doc = "!< CSP variable with unbounded domain"]
-pub const clingo_warning_clingo_warning_variable_unbounded: clingo_warning = 4;
+pub const clingo_warning_e_clingo_warning_variable_unbounded: clingo_warning_e = 4;
 #[doc = "!< global variable in tuple of aggregate element"]
-pub const clingo_warning_clingo_warning_global_variable: clingo_warning = 5;
+pub const clingo_warning_e_clingo_warning_global_variable: clingo_warning_e = 5;
 #[doc = "!< other kinds of warnings"]
-pub const clingo_warning_clingo_warning_other: clingo_warning = 6;
+pub const clingo_warning_e_clingo_warning_other: clingo_warning_e = 6;
 #[doc = "! Enumeration of warning codes."]
-pub type clingo_warning = ::std::os::raw::c_uint;
+pub type clingo_warning_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_warning."]
 pub type clingo_warning_t = ::std::os::raw::c_int;
 extern "C" {
@@ -350,13 +350,13 @@ extern "C" {
     );
 }
 #[doc = "!< no truth value"]
-pub const clingo_truth_value_clingo_truth_value_free: clingo_truth_value = 0;
+pub const clingo_truth_value_e_clingo_truth_value_free: clingo_truth_value_e = 0;
 #[doc = "!< true"]
-pub const clingo_truth_value_clingo_truth_value_true: clingo_truth_value = 1;
+pub const clingo_truth_value_e_clingo_truth_value_true: clingo_truth_value_e = 1;
 #[doc = "!< false"]
-pub const clingo_truth_value_clingo_truth_value_false: clingo_truth_value = 2;
+pub const clingo_truth_value_e_clingo_truth_value_false: clingo_truth_value_e = 2;
 #[doc = "! Represents three-valued truth values."]
-pub type clingo_truth_value = ::std::os::raw::c_uint;
+pub type clingo_truth_value_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_truth_value."]
 pub type clingo_truth_value_t = ::std::os::raw::c_int;
 #[doc = "! Represents a source code location marking its beginnig and end."]
@@ -538,17 +538,17 @@ extern "C" {
     pub fn clingo_signature_hash(signature: clingo_signature_t) -> usize;
 }
 #[doc = "!< the <tt>\\#inf</tt> symbol"]
-pub const clingo_symbol_type_clingo_symbol_type_infimum: clingo_symbol_type = 0;
+pub const clingo_symbol_type_e_clingo_symbol_type_infimum: clingo_symbol_type_e = 0;
 #[doc = "!< a numeric symbol, e.g., `1`"]
-pub const clingo_symbol_type_clingo_symbol_type_number: clingo_symbol_type = 1;
+pub const clingo_symbol_type_e_clingo_symbol_type_number: clingo_symbol_type_e = 1;
 #[doc = "!< a string symbol, e.g., `\"a\"`"]
-pub const clingo_symbol_type_clingo_symbol_type_string: clingo_symbol_type = 4;
+pub const clingo_symbol_type_e_clingo_symbol_type_string: clingo_symbol_type_e = 4;
 #[doc = "!< a numeric symbol, e.g., `c`, `(1, \"a\")`, or `f(1,\"a\")`"]
-pub const clingo_symbol_type_clingo_symbol_type_function: clingo_symbol_type = 5;
+pub const clingo_symbol_type_e_clingo_symbol_type_function: clingo_symbol_type_e = 5;
 #[doc = "!< the <tt>\\#sup</tt> symbol"]
-pub const clingo_symbol_type_clingo_symbol_type_supremum: clingo_symbol_type = 7;
+pub const clingo_symbol_type_e_clingo_symbol_type_supremum: clingo_symbol_type_e = 7;
 #[doc = "! Enumeration of available symbol types."]
-pub type clingo_symbol_type = ::std::os::raw::c_uint;
+pub type clingo_symbol_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_symbol_type."]
 pub type clingo_symbol_type_t = ::std::os::raw::c_int;
 #[doc = "! Represents a symbol."]
@@ -1014,19 +1014,19 @@ pub type clingo_symbol_callback_t = ::std::option::Option<
     ) -> bool,
 >;
 #[doc = "!< a tuple term, e.g., `(1,2,3)`"]
-pub const clingo_theory_term_type_clingo_theory_term_type_tuple: clingo_theory_term_type = 0;
+pub const clingo_theory_term_type_e_clingo_theory_term_type_tuple: clingo_theory_term_type_e = 0;
 #[doc = "!< a list term, e.g., `[1,2,3]`"]
-pub const clingo_theory_term_type_clingo_theory_term_type_list: clingo_theory_term_type = 1;
+pub const clingo_theory_term_type_e_clingo_theory_term_type_list: clingo_theory_term_type_e = 1;
 #[doc = "!< a set term, e.g., `{1,2,3}`"]
-pub const clingo_theory_term_type_clingo_theory_term_type_set: clingo_theory_term_type = 2;
+pub const clingo_theory_term_type_e_clingo_theory_term_type_set: clingo_theory_term_type_e = 2;
 #[doc = "!< a function term, e.g., `f(1,2,3)`"]
-pub const clingo_theory_term_type_clingo_theory_term_type_function: clingo_theory_term_type = 3;
+pub const clingo_theory_term_type_e_clingo_theory_term_type_function: clingo_theory_term_type_e = 3;
 #[doc = "!< a number term, e.g., `42`"]
-pub const clingo_theory_term_type_clingo_theory_term_type_number: clingo_theory_term_type = 4;
+pub const clingo_theory_term_type_e_clingo_theory_term_type_number: clingo_theory_term_type_e = 4;
 #[doc = "!< a symbol term, e.g., `c`"]
-pub const clingo_theory_term_type_clingo_theory_term_type_symbol: clingo_theory_term_type = 5;
+pub const clingo_theory_term_type_e_clingo_theory_term_type_symbol: clingo_theory_term_type_e = 5;
 #[doc = "! Enumeration of theory term types."]
-pub type clingo_theory_term_type = ::std::os::raw::c_uint;
+pub type clingo_theory_term_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_theory_term_type."]
 pub type clingo_theory_term_type_t = ::std::os::raw::c_int;
 #[repr(C)]
@@ -1535,35 +1535,35 @@ extern "C" {
     ) -> bool;
 }
 #[doc = "!< do not call @ref ::clingo_propagator::check() at all"]
-pub const clingo_propagator_check_mode_clingo_propagator_check_mode_none:
-    clingo_propagator_check_mode = 0;
+pub const clingo_propagator_check_mode_e_clingo_propagator_check_mode_none:
+    clingo_propagator_check_mode_e = 0;
 #[doc = "!< call @ref ::clingo_propagator::check() on total assignments"]
-pub const clingo_propagator_check_mode_clingo_propagator_check_mode_total:
-    clingo_propagator_check_mode = 1;
+pub const clingo_propagator_check_mode_e_clingo_propagator_check_mode_total:
+    clingo_propagator_check_mode_e = 1;
 #[doc = "!< call @ref ::clingo_propagator::check() on propagation fixpoints"]
-pub const clingo_propagator_check_mode_clingo_propagator_check_mode_fixpoint:
-    clingo_propagator_check_mode = 2;
+pub const clingo_propagator_check_mode_e_clingo_propagator_check_mode_fixpoint:
+    clingo_propagator_check_mode_e = 2;
 #[doc = "!< call @ref ::clingo_propagator::check() on propagation fixpoints and total assignments"]
-pub const clingo_propagator_check_mode_clingo_propagator_check_mode_both:
-    clingo_propagator_check_mode = 3;
+pub const clingo_propagator_check_mode_e_clingo_propagator_check_mode_both:
+    clingo_propagator_check_mode_e = 3;
 #[doc = "! Supported check modes for propagators."]
 #[doc = "!"]
 #[doc = "! Note that total checks are subject to the lock when a model is found."]
 #[doc = "! This means that information from previously found models can be used to discard assignments in check calls."]
-pub type clingo_propagator_check_mode = ::std::os::raw::c_uint;
+pub type clingo_propagator_check_mode_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_propagator_check_mode."]
 pub type clingo_propagator_check_mode_t = ::std::os::raw::c_int;
 #[doc = "!< the weight constraint implies the literal"]
-pub const clingo_weight_constraint_type_clingo_weight_constraint_type_implication_left:
-    clingo_weight_constraint_type = -1;
+pub const clingo_weight_constraint_type_e_clingo_weight_constraint_type_implication_left:
+    clingo_weight_constraint_type_e = -1;
 #[doc = "!< the literal implies the weight constraint"]
-pub const clingo_weight_constraint_type_clingo_weight_constraint_type_implication_right:
-    clingo_weight_constraint_type = 1;
+pub const clingo_weight_constraint_type_e_clingo_weight_constraint_type_implication_right:
+    clingo_weight_constraint_type_e = 1;
 #[doc = "!< the weight constraint is equivalent to the literal"]
-pub const clingo_weight_constraint_type_clingo_weight_constraint_type_equivalence:
-    clingo_weight_constraint_type = 0;
+pub const clingo_weight_constraint_type_e_clingo_weight_constraint_type_equivalence:
+    clingo_weight_constraint_type_e = 0;
 #[doc = "! Enumeration of weight_constraint_types."]
-pub type clingo_weight_constraint_type = ::std::os::raw::c_int;
+pub type clingo_weight_constraint_type_e = ::std::os::raw::c_int;
 #[doc = "! Corresponding type to ::clingo_weight_constraint_type."]
 pub type clingo_weight_constraint_type_t = ::std::os::raw::c_int;
 #[repr(C)]
@@ -1781,18 +1781,18 @@ extern "C" {
     ) -> bool;
 }
 #[doc = "!< clause is subject to the solvers deletion policy"]
-pub const clingo_clause_type_clingo_clause_type_learnt: clingo_clause_type = 0;
+pub const clingo_clause_type_e_clingo_clause_type_learnt: clingo_clause_type_e = 0;
 #[doc = "!< clause is not subject to the solvers deletion policy"]
-pub const clingo_clause_type_clingo_clause_type_static: clingo_clause_type = 1;
+pub const clingo_clause_type_e_clingo_clause_type_static: clingo_clause_type_e = 1;
 #[doc = "!< like ::clingo_clause_type_learnt but the clause is deleted after a solving step"]
-pub const clingo_clause_type_clingo_clause_type_volatile: clingo_clause_type = 2;
+pub const clingo_clause_type_e_clingo_clause_type_volatile: clingo_clause_type_e = 2;
 #[doc = "!< like ::clingo_clause_type_static but the clause is deleted after a solving step"]
-pub const clingo_clause_type_clingo_clause_type_volatile_static: clingo_clause_type = 3;
+pub const clingo_clause_type_e_clingo_clause_type_volatile_static: clingo_clause_type_e = 3;
 #[doc = "! Enumeration of clause types determining the lifetime of a clause."]
 #[doc = "!"]
 #[doc = "! Clauses in the solver are either cleaned up based on a configurable deletion policy or at the end of a solving step."]
 #[doc = "! The values of this enumeration determine if a clause is subject to one of the above deletion strategies."]
-pub type clingo_clause_type = ::std::os::raw::c_uint;
+pub type clingo_clause_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_clause_type."]
 pub type clingo_clause_type_t = ::std::os::raw::c_int;
 #[repr(C)]
@@ -2146,34 +2146,34 @@ fn bindgen_test_layout_clingo_propagator() {
 #[doc = "! @see Propagator"]
 pub type clingo_propagator_t = clingo_propagator;
 #[doc = "!< set the level of an atom"]
-pub const clingo_heuristic_type_clingo_heuristic_type_level: clingo_heuristic_type = 0;
+pub const clingo_heuristic_type_e_clingo_heuristic_type_level: clingo_heuristic_type_e = 0;
 #[doc = "!< configure which sign to chose for an atom"]
-pub const clingo_heuristic_type_clingo_heuristic_type_sign: clingo_heuristic_type = 1;
+pub const clingo_heuristic_type_e_clingo_heuristic_type_sign: clingo_heuristic_type_e = 1;
 #[doc = "!< modify VSIDS factor of an atom"]
-pub const clingo_heuristic_type_clingo_heuristic_type_factor: clingo_heuristic_type = 2;
+pub const clingo_heuristic_type_e_clingo_heuristic_type_factor: clingo_heuristic_type_e = 2;
 #[doc = "!< modify the initial VSIDS score of an atom"]
-pub const clingo_heuristic_type_clingo_heuristic_type_init: clingo_heuristic_type = 3;
+pub const clingo_heuristic_type_e_clingo_heuristic_type_init: clingo_heuristic_type_e = 3;
 #[doc = "!< set the level of an atom and choose a positive sign"]
-pub const clingo_heuristic_type_clingo_heuristic_type_true: clingo_heuristic_type = 4;
+pub const clingo_heuristic_type_e_clingo_heuristic_type_true: clingo_heuristic_type_e = 4;
 #[doc = "!< set the level of an atom and choose a negative sign"]
-pub const clingo_heuristic_type_clingo_heuristic_type_false: clingo_heuristic_type = 5;
+pub const clingo_heuristic_type_e_clingo_heuristic_type_false: clingo_heuristic_type_e = 5;
 #[doc = "! Enumeration of different heuristic modifiers."]
 #[doc = "! @ingroup ProgramInspection"]
-pub type clingo_heuristic_type = ::std::os::raw::c_uint;
+pub type clingo_heuristic_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_heuristic_type."]
 #[doc = "! @ingroup ProgramInspection"]
 pub type clingo_heuristic_type_t = ::std::os::raw::c_int;
 #[doc = "!< allow an external to be assigned freely"]
-pub const clingo_external_type_clingo_external_type_free: clingo_external_type = 0;
+pub const clingo_external_type_e_clingo_external_type_free: clingo_external_type_e = 0;
 #[doc = "!< assign an external to true"]
-pub const clingo_external_type_clingo_external_type_true: clingo_external_type = 1;
+pub const clingo_external_type_e_clingo_external_type_true: clingo_external_type_e = 1;
 #[doc = "!< assign an external to false"]
-pub const clingo_external_type_clingo_external_type_false: clingo_external_type = 2;
+pub const clingo_external_type_e_clingo_external_type_false: clingo_external_type_e = 2;
 #[doc = "!< no longer treat an atom as external"]
-pub const clingo_external_type_clingo_external_type_release: clingo_external_type = 3;
+pub const clingo_external_type_e_clingo_external_type_release: clingo_external_type_e = 3;
 #[doc = "! Enumeration of different external statements."]
 #[doc = "! @ingroup ProgramInspection"]
-pub type clingo_external_type = ::std::os::raw::c_uint;
+pub type clingo_external_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_external_type."]
 #[doc = "! @ingroup ProgramInspection"]
 pub type clingo_external_type_t = ::std::os::raw::c_int;
@@ -2357,13 +2357,16 @@ extern "C" {
     ) -> bool;
 }
 #[doc = "!< the entry is a (string) value"]
-pub const clingo_configuration_type_clingo_configuration_type_value: clingo_configuration_type = 1;
+pub const clingo_configuration_type_e_clingo_configuration_type_value: clingo_configuration_type_e =
+    1;
 #[doc = "!< the entry is an array"]
-pub const clingo_configuration_type_clingo_configuration_type_array: clingo_configuration_type = 2;
+pub const clingo_configuration_type_e_clingo_configuration_type_array: clingo_configuration_type_e =
+    2;
 #[doc = "!< the entry is a map"]
-pub const clingo_configuration_type_clingo_configuration_type_map: clingo_configuration_type = 4;
+pub const clingo_configuration_type_e_clingo_configuration_type_map: clingo_configuration_type_e =
+    4;
 #[doc = "! Enumeration for entries of the configuration."]
-pub type clingo_configuration_type = ::std::os::raw::c_uint;
+pub type clingo_configuration_type_e = ::std::os::raw::c_uint;
 #[doc = "! Bitset for values of type ::clingo_configuration_type."]
 pub type clingo_configuration_type_bitset_t = ::std::os::raw::c_uint;
 #[repr(C)]
@@ -2567,15 +2570,15 @@ extern "C" {
     ) -> bool;
 }
 #[doc = "!< the entry is invalid (has neither of the types below)"]
-pub const clingo_statistics_type_clingo_statistics_type_empty: clingo_statistics_type = 0;
+pub const clingo_statistics_type_e_clingo_statistics_type_empty: clingo_statistics_type_e = 0;
 #[doc = "!< the entry is a (double) value"]
-pub const clingo_statistics_type_clingo_statistics_type_value: clingo_statistics_type = 1;
+pub const clingo_statistics_type_e_clingo_statistics_type_value: clingo_statistics_type_e = 1;
 #[doc = "!< the entry is an array"]
-pub const clingo_statistics_type_clingo_statistics_type_array: clingo_statistics_type = 2;
+pub const clingo_statistics_type_e_clingo_statistics_type_array: clingo_statistics_type_e = 2;
 #[doc = "!< the entry is a map"]
-pub const clingo_statistics_type_clingo_statistics_type_map: clingo_statistics_type = 3;
+pub const clingo_statistics_type_e_clingo_statistics_type_map: clingo_statistics_type_e = 3;
 #[doc = "! Enumeration for entries of the statistics."]
-pub type clingo_statistics_type = ::std::os::raw::c_uint;
+pub type clingo_statistics_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_statistics_type."]
 pub type clingo_statistics_type_t = ::std::os::raw::c_int;
 #[repr(C)]
@@ -2776,31 +2779,31 @@ pub struct clingo_model {
 #[doc = "! Object representing a model."]
 pub type clingo_model_t = clingo_model;
 #[doc = "!< The model represents a stable model."]
-pub const clingo_model_type_clingo_model_type_stable_model: clingo_model_type = 0;
+pub const clingo_model_type_e_clingo_model_type_stable_model: clingo_model_type_e = 0;
 #[doc = "!< The model represents a set of brave consequences."]
-pub const clingo_model_type_clingo_model_type_brave_consequences: clingo_model_type = 1;
+pub const clingo_model_type_e_clingo_model_type_brave_consequences: clingo_model_type_e = 1;
 #[doc = "!< The model represents a set of cautious consequences."]
-pub const clingo_model_type_clingo_model_type_cautious_consequences: clingo_model_type = 2;
+pub const clingo_model_type_e_clingo_model_type_cautious_consequences: clingo_model_type_e = 2;
 #[doc = "! Enumeration for the different model types."]
-pub type clingo_model_type = ::std::os::raw::c_uint;
+pub type clingo_model_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_model_type."]
 pub type clingo_model_type_t = ::std::os::raw::c_int;
 #[doc = "!< Select CSP assignments."]
-pub const clingo_show_type_clingo_show_type_csp: clingo_show_type = 1;
+pub const clingo_show_type_e_clingo_show_type_csp: clingo_show_type_e = 1;
 #[doc = "!< Select shown atoms and terms."]
-pub const clingo_show_type_clingo_show_type_shown: clingo_show_type = 2;
+pub const clingo_show_type_e_clingo_show_type_shown: clingo_show_type_e = 2;
 #[doc = "!< Select all atoms."]
-pub const clingo_show_type_clingo_show_type_atoms: clingo_show_type = 4;
+pub const clingo_show_type_e_clingo_show_type_atoms: clingo_show_type_e = 4;
 #[doc = "!< Select all terms."]
-pub const clingo_show_type_clingo_show_type_terms: clingo_show_type = 8;
+pub const clingo_show_type_e_clingo_show_type_terms: clingo_show_type_e = 8;
 #[doc = "!< Select symbols added by theory."]
-pub const clingo_show_type_clingo_show_type_theory: clingo_show_type = 16;
+pub const clingo_show_type_e_clingo_show_type_theory: clingo_show_type_e = 16;
 #[doc = "!< Select everything."]
-pub const clingo_show_type_clingo_show_type_all: clingo_show_type = 31;
+pub const clingo_show_type_e_clingo_show_type_all: clingo_show_type_e = 31;
 #[doc = "!< Select false instead of true atoms (::clingo_show_type_atoms) or terms (::clingo_show_type_terms)."]
-pub const clingo_show_type_clingo_show_type_complement: clingo_show_type = 32;
+pub const clingo_show_type_e_clingo_show_type_complement: clingo_show_type_e = 32;
 #[doc = "! Enumeration of bit flags to select symbols in models."]
-pub type clingo_show_type = ::std::os::raw::c_uint;
+pub type clingo_show_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_show_type."]
 pub type clingo_show_type_bitset_t = ::std::os::raw::c_uint;
 extern "C" {
@@ -2982,30 +2985,31 @@ extern "C" {
         size: usize,
     ) -> bool;
 }
-pub const clingo_solve_result_clingo_solve_result_satisfiable: clingo_solve_result = 1;
-pub const clingo_solve_result_clingo_solve_result_unsatisfiable: clingo_solve_result = 2;
-pub const clingo_solve_result_clingo_solve_result_exhausted: clingo_solve_result = 4;
-pub const clingo_solve_result_clingo_solve_result_interrupted: clingo_solve_result = 8;
-pub type clingo_solve_result = ::std::os::raw::c_uint;
+pub const clingo_solve_result_e_clingo_solve_result_satisfiable: clingo_solve_result_e = 1;
+pub const clingo_solve_result_e_clingo_solve_result_unsatisfiable: clingo_solve_result_e = 2;
+pub const clingo_solve_result_e_clingo_solve_result_exhausted: clingo_solve_result_e = 4;
+pub const clingo_solve_result_e_clingo_solve_result_interrupted: clingo_solve_result_e = 8;
+pub type clingo_solve_result_e = ::std::os::raw::c_uint;
 pub type clingo_solve_result_bitset_t = ::std::os::raw::c_uint;
 #[doc = "!< Enable non-blocking search."]
-pub const clingo_solve_mode_clingo_solve_mode_async: clingo_solve_mode = 1;
+pub const clingo_solve_mode_e_clingo_solve_mode_async: clingo_solve_mode_e = 1;
 #[doc = "!< Yield models in calls to clingo_solve_handle_model."]
-pub const clingo_solve_mode_clingo_solve_mode_yield: clingo_solve_mode = 2;
+pub const clingo_solve_mode_e_clingo_solve_mode_yield: clingo_solve_mode_e = 2;
 #[doc = "! Enumeration of solve modes."]
-pub type clingo_solve_mode = ::std::os::raw::c_uint;
+pub type clingo_solve_mode_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_solve_mode."]
 pub type clingo_solve_mode_bitset_t = ::std::os::raw::c_uint;
 #[doc = "!< Issued if a model is found."]
-pub const clingo_solve_event_type_clingo_solve_event_type_model: clingo_solve_event_type = 0;
+pub const clingo_solve_event_type_e_clingo_solve_event_type_model: clingo_solve_event_type_e = 0;
 #[doc = "!< Issued if an optimization problem is found unsatisfiable."]
-pub const clingo_solve_event_type_clingo_solve_event_type_unsat: clingo_solve_event_type = 1;
+pub const clingo_solve_event_type_e_clingo_solve_event_type_unsat: clingo_solve_event_type_e = 1;
 #[doc = "!< Issued when the statistics can be updated."]
-pub const clingo_solve_event_type_clingo_solve_event_type_statistics: clingo_solve_event_type = 2;
+pub const clingo_solve_event_type_e_clingo_solve_event_type_statistics: clingo_solve_event_type_e =
+    2;
 #[doc = "!< Issued if the search has completed."]
-pub const clingo_solve_event_type_clingo_solve_event_type_finish: clingo_solve_event_type = 3;
+pub const clingo_solve_event_type_e_clingo_solve_event_type_finish: clingo_solve_event_type_e = 3;
 #[doc = "! Enumeration of solve events."]
-pub type clingo_solve_event_type = ::std::os::raw::c_uint;
+pub type clingo_solve_event_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_solve_event_type."]
 pub type clingo_solve_event_type_t = ::std::os::raw::c_uint;
 #[doc = "! Callback function called during search to notify when the search is finished or a model is ready."]
@@ -3134,272 +3138,280 @@ extern "C" {
     pub fn clingo_solve_handle_close(handle: *mut clingo_solve_handle_t) -> bool;
 }
 #[doc = "!< Theory tuples \"(t1,...,tn)\"."]
-pub const clingo_ast_theory_sequence_type_clingo_ast_theory_sequence_type_tuple:
-    clingo_ast_theory_sequence_type = 0;
+pub const clingo_ast_theory_sequence_type_e_clingo_ast_theory_sequence_type_tuple:
+    clingo_ast_theory_sequence_type_e = 0;
 #[doc = "!< Theory lists \"[t1,...,tn]\"."]
-pub const clingo_ast_theory_sequence_type_clingo_ast_theory_sequence_type_list:
-    clingo_ast_theory_sequence_type = 1;
+pub const clingo_ast_theory_sequence_type_e_clingo_ast_theory_sequence_type_list:
+    clingo_ast_theory_sequence_type_e = 1;
 #[doc = "!< Theory sets \"{t1,...,tn}\"."]
-pub const clingo_ast_theory_sequence_type_clingo_ast_theory_sequence_type_set:
-    clingo_ast_theory_sequence_type = 2;
+pub const clingo_ast_theory_sequence_type_e_clingo_ast_theory_sequence_type_set:
+    clingo_ast_theory_sequence_type_e = 2;
 #[doc = "! Enumeration of theory sequence types."]
-pub type clingo_ast_theory_sequence_type = ::std::os::raw::c_uint;
+pub type clingo_ast_theory_sequence_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_theory_sequence_type."]
 pub type clingo_ast_theory_sequence_type_t = ::std::os::raw::c_int;
 #[doc = "!< Operator \">\"."]
-pub const clingo_ast_comparison_operator_clingo_ast_comparison_operator_greater_than:
-    clingo_ast_comparison_operator = 0;
+pub const clingo_ast_comparison_operator_e_clingo_ast_comparison_operator_greater_than:
+    clingo_ast_comparison_operator_e = 0;
 #[doc = "!< Operator \"<\"."]
-pub const clingo_ast_comparison_operator_clingo_ast_comparison_operator_less_than:
-    clingo_ast_comparison_operator = 1;
+pub const clingo_ast_comparison_operator_e_clingo_ast_comparison_operator_less_than:
+    clingo_ast_comparison_operator_e = 1;
 #[doc = "!< Operator \"<=\"."]
-pub const clingo_ast_comparison_operator_clingo_ast_comparison_operator_less_equal:
-    clingo_ast_comparison_operator = 2;
+pub const clingo_ast_comparison_operator_e_clingo_ast_comparison_operator_less_equal:
+    clingo_ast_comparison_operator_e = 2;
 #[doc = "!< Operator \">=\"."]
-pub const clingo_ast_comparison_operator_clingo_ast_comparison_operator_greater_equal:
-    clingo_ast_comparison_operator = 3;
+pub const clingo_ast_comparison_operator_e_clingo_ast_comparison_operator_greater_equal:
+    clingo_ast_comparison_operator_e = 3;
 #[doc = "!< Operator \"!=\"."]
-pub const clingo_ast_comparison_operator_clingo_ast_comparison_operator_not_equal:
-    clingo_ast_comparison_operator = 4;
+pub const clingo_ast_comparison_operator_e_clingo_ast_comparison_operator_not_equal:
+    clingo_ast_comparison_operator_e = 4;
 #[doc = "!< Operator \"==\"."]
-pub const clingo_ast_comparison_operator_clingo_ast_comparison_operator_equal:
-    clingo_ast_comparison_operator = 5;
+pub const clingo_ast_comparison_operator_e_clingo_ast_comparison_operator_equal:
+    clingo_ast_comparison_operator_e = 5;
 #[doc = "! Enumeration of comparison relations."]
-pub type clingo_ast_comparison_operator = ::std::os::raw::c_uint;
+pub type clingo_ast_comparison_operator_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_comparison_operator."]
 pub type clingo_ast_comparison_operator_t = ::std::os::raw::c_int;
 #[doc = "!< For positive literals."]
-pub const clingo_ast_sign_clingo_ast_sign_no_sign: clingo_ast_sign = 0;
+pub const clingo_ast_sign_e_clingo_ast_sign_no_sign: clingo_ast_sign_e = 0;
 #[doc = "!< For negative literals (prefix \"not\")."]
-pub const clingo_ast_sign_clingo_ast_sign_negation: clingo_ast_sign = 1;
+pub const clingo_ast_sign_e_clingo_ast_sign_negation: clingo_ast_sign_e = 1;
 #[doc = "!< For double negated literals (prefix \"not not\")."]
-pub const clingo_ast_sign_clingo_ast_sign_double_negation: clingo_ast_sign = 2;
+pub const clingo_ast_sign_e_clingo_ast_sign_double_negation: clingo_ast_sign_e = 2;
 #[doc = "! Enumeration of signs."]
-pub type clingo_ast_sign = ::std::os::raw::c_uint;
+pub type clingo_ast_sign_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_sign_t."]
 pub type clingo_ast_sign_t = ::std::os::raw::c_int;
 #[doc = "!< Operator \"-\"."]
-pub const clingo_ast_unary_operator_clingo_ast_unary_operator_minus: clingo_ast_unary_operator = 0;
+pub const clingo_ast_unary_operator_e_clingo_ast_unary_operator_minus: clingo_ast_unary_operator_e =
+    0;
 #[doc = "!< Operator \"~\"."]
-pub const clingo_ast_unary_operator_clingo_ast_unary_operator_negation: clingo_ast_unary_operator =
-    1;
+pub const clingo_ast_unary_operator_e_clingo_ast_unary_operator_negation:
+    clingo_ast_unary_operator_e = 1;
 #[doc = "!< Operator \"|.|\"."]
-pub const clingo_ast_unary_operator_clingo_ast_unary_operator_absolute: clingo_ast_unary_operator =
-    2;
+pub const clingo_ast_unary_operator_e_clingo_ast_unary_operator_absolute:
+    clingo_ast_unary_operator_e = 2;
 #[doc = "! Enumeration of unary operators."]
-pub type clingo_ast_unary_operator = ::std::os::raw::c_uint;
+pub type clingo_ast_unary_operator_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_unary_operator."]
 pub type clingo_ast_unary_operator_t = ::std::os::raw::c_int;
 #[doc = "!< Operator \"^\"."]
-pub const clingo_ast_binary_operator_clingo_ast_binary_operator_xor: clingo_ast_binary_operator = 0;
+pub const clingo_ast_binary_operator_e_clingo_ast_binary_operator_xor:
+    clingo_ast_binary_operator_e = 0;
 #[doc = "!< Operator \"?\"."]
-pub const clingo_ast_binary_operator_clingo_ast_binary_operator_or: clingo_ast_binary_operator = 1;
+pub const clingo_ast_binary_operator_e_clingo_ast_binary_operator_or: clingo_ast_binary_operator_e =
+    1;
 #[doc = "!< Operator \"&\"."]
-pub const clingo_ast_binary_operator_clingo_ast_binary_operator_and: clingo_ast_binary_operator = 2;
+pub const clingo_ast_binary_operator_e_clingo_ast_binary_operator_and:
+    clingo_ast_binary_operator_e = 2;
 #[doc = "!< Operator \"+\"."]
-pub const clingo_ast_binary_operator_clingo_ast_binary_operator_plus: clingo_ast_binary_operator =
-    3;
+pub const clingo_ast_binary_operator_e_clingo_ast_binary_operator_plus:
+    clingo_ast_binary_operator_e = 3;
 #[doc = "!< Operator \"-\"."]
-pub const clingo_ast_binary_operator_clingo_ast_binary_operator_minus: clingo_ast_binary_operator =
-    4;
+pub const clingo_ast_binary_operator_e_clingo_ast_binary_operator_minus:
+    clingo_ast_binary_operator_e = 4;
 #[doc = "!< Operator \"*\"."]
-pub const clingo_ast_binary_operator_clingo_ast_binary_operator_multiplication:
-    clingo_ast_binary_operator = 5;
+pub const clingo_ast_binary_operator_e_clingo_ast_binary_operator_multiplication:
+    clingo_ast_binary_operator_e = 5;
 #[doc = "!< Operator \"/\"."]
-pub const clingo_ast_binary_operator_clingo_ast_binary_operator_division:
-    clingo_ast_binary_operator = 6;
+pub const clingo_ast_binary_operator_e_clingo_ast_binary_operator_division:
+    clingo_ast_binary_operator_e = 6;
 #[doc = "!< Operator \"\\\"."]
-pub const clingo_ast_binary_operator_clingo_ast_binary_operator_modulo: clingo_ast_binary_operator =
-    7;
+pub const clingo_ast_binary_operator_e_clingo_ast_binary_operator_modulo:
+    clingo_ast_binary_operator_e = 7;
 #[doc = "!< Operator \"**\"."]
-pub const clingo_ast_binary_operator_clingo_ast_binary_operator_power: clingo_ast_binary_operator =
-    8;
+pub const clingo_ast_binary_operator_e_clingo_ast_binary_operator_power:
+    clingo_ast_binary_operator_e = 8;
 #[doc = "! Enumeration of binary operators."]
-pub type clingo_ast_binary_operator = ::std::os::raw::c_uint;
+pub type clingo_ast_binary_operator_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_binary_operator."]
 pub type clingo_ast_binary_operator_t = ::std::os::raw::c_int;
 #[doc = "!< Operator \"^\"."]
-pub const clingo_ast_aggregate_function_clingo_ast_aggregate_function_count:
-    clingo_ast_aggregate_function = 0;
+pub const clingo_ast_aggregate_function_e_clingo_ast_aggregate_function_count:
+    clingo_ast_aggregate_function_e = 0;
 #[doc = "!< Operator \"?\"."]
-pub const clingo_ast_aggregate_function_clingo_ast_aggregate_function_sum:
-    clingo_ast_aggregate_function = 1;
+pub const clingo_ast_aggregate_function_e_clingo_ast_aggregate_function_sum:
+    clingo_ast_aggregate_function_e = 1;
 #[doc = "!< Operator \"&\"."]
-pub const clingo_ast_aggregate_function_clingo_ast_aggregate_function_sump:
-    clingo_ast_aggregate_function = 2;
+pub const clingo_ast_aggregate_function_e_clingo_ast_aggregate_function_sump:
+    clingo_ast_aggregate_function_e = 2;
 #[doc = "!< Operator \"+\"."]
-pub const clingo_ast_aggregate_function_clingo_ast_aggregate_function_min:
-    clingo_ast_aggregate_function = 3;
+pub const clingo_ast_aggregate_function_e_clingo_ast_aggregate_function_min:
+    clingo_ast_aggregate_function_e = 3;
 #[doc = "!< Operator \"-\"."]
-pub const clingo_ast_aggregate_function_clingo_ast_aggregate_function_max:
-    clingo_ast_aggregate_function = 4;
+pub const clingo_ast_aggregate_function_e_clingo_ast_aggregate_function_max:
+    clingo_ast_aggregate_function_e = 4;
 #[doc = "! Enumeration of aggregate functions."]
-pub type clingo_ast_aggregate_function = ::std::os::raw::c_uint;
+pub type clingo_ast_aggregate_function_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_aggregate_function."]
 pub type clingo_ast_aggregate_function_t = ::std::os::raw::c_int;
 #[doc = "!< An unary theory operator."]
-pub const clingo_ast_theory_operator_type_clingo_ast_theory_operator_type_unary:
-    clingo_ast_theory_operator_type = 0;
+pub const clingo_ast_theory_operator_type_e_clingo_ast_theory_operator_type_unary:
+    clingo_ast_theory_operator_type_e = 0;
 #[doc = "!< A left associative binary operator."]
-pub const clingo_ast_theory_operator_type_clingo_ast_theory_operator_type_binary_left:
-    clingo_ast_theory_operator_type = 1;
+pub const clingo_ast_theory_operator_type_e_clingo_ast_theory_operator_type_binary_left:
+    clingo_ast_theory_operator_type_e = 1;
 #[doc = "!< A right associative binary operator."]
-pub const clingo_ast_theory_operator_type_clingo_ast_theory_operator_type_binary_right:
-    clingo_ast_theory_operator_type = 2;
+pub const clingo_ast_theory_operator_type_e_clingo_ast_theory_operator_type_binary_right:
+    clingo_ast_theory_operator_type_e = 2;
 #[doc = "! Enumeration of theory operators."]
-pub type clingo_ast_theory_operator_type = ::std::os::raw::c_uint;
+pub type clingo_ast_theory_operator_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_theory_operator_type."]
 pub type clingo_ast_theory_operator_type_t = ::std::os::raw::c_int;
 #[doc = "!< For theory atoms that can appear in the head."]
-pub const clingo_ast_theory_atom_definition_type_clingo_ast_theory_atom_definition_type_head:
-    clingo_ast_theory_atom_definition_type = 0;
+pub const clingo_ast_theory_atom_definition_type_e_clingo_ast_theory_atom_definition_type_head:
+    clingo_ast_theory_atom_definition_type_e = 0;
 #[doc = "!< For theory atoms that can appear in the body."]
-pub const clingo_ast_theory_atom_definition_type_clingo_ast_theory_atom_definition_type_body:
-    clingo_ast_theory_atom_definition_type = 1;
+pub const clingo_ast_theory_atom_definition_type_e_clingo_ast_theory_atom_definition_type_body:
+    clingo_ast_theory_atom_definition_type_e = 1;
 #[doc = "!< For theory atoms that can appear in both head and body."]
-pub const clingo_ast_theory_atom_definition_type_clingo_ast_theory_atom_definition_type_any:
-    clingo_ast_theory_atom_definition_type = 2;
+pub const clingo_ast_theory_atom_definition_type_e_clingo_ast_theory_atom_definition_type_any:
+    clingo_ast_theory_atom_definition_type_e = 2;
 #[doc = "!< For theory atoms that must not have a body."]
-pub const clingo_ast_theory_atom_definition_type_clingo_ast_theory_atom_definition_type_directive : clingo_ast_theory_atom_definition_type = 3 ;
+pub const clingo_ast_theory_atom_definition_type_e_clingo_ast_theory_atom_definition_type_directive : clingo_ast_theory_atom_definition_type_e = 3 ;
 #[doc = "! Enumeration of the theory atom types."]
-pub type clingo_ast_theory_atom_definition_type = ::std::os::raw::c_uint;
+pub type clingo_ast_theory_atom_definition_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_theory_atom_definition_type."]
 pub type clingo_ast_theory_atom_definition_type_t = ::std::os::raw::c_int;
 #[doc = "!< For Lua scripts."]
-pub const clingo_ast_script_type_clingo_ast_script_type_lua: clingo_ast_script_type = 0;
+pub const clingo_ast_script_type_e_clingo_ast_script_type_lua: clingo_ast_script_type_e = 0;
 #[doc = "!< For Python scripts."]
-pub const clingo_ast_script_type_clingo_ast_script_type_python: clingo_ast_script_type = 1;
+pub const clingo_ast_script_type_e_clingo_ast_script_type_python: clingo_ast_script_type_e = 1;
 #[doc = "! Enumeration of script types."]
-pub type clingo_ast_script_type = ::std::os::raw::c_uint;
+pub type clingo_ast_script_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_script_type."]
 pub type clingo_ast_script_type_t = ::std::os::raw::c_int;
-pub const clingo_ast_type_clingo_ast_type_id: clingo_ast_type = 0;
-pub const clingo_ast_type_clingo_ast_type_variable: clingo_ast_type = 1;
-pub const clingo_ast_type_clingo_ast_type_symbolic_term: clingo_ast_type = 2;
-pub const clingo_ast_type_clingo_ast_type_unary_operation: clingo_ast_type = 3;
-pub const clingo_ast_type_clingo_ast_type_binary_operation: clingo_ast_type = 4;
-pub const clingo_ast_type_clingo_ast_type_interval: clingo_ast_type = 5;
-pub const clingo_ast_type_clingo_ast_type_function: clingo_ast_type = 6;
-pub const clingo_ast_type_clingo_ast_type_pool: clingo_ast_type = 7;
-pub const clingo_ast_type_clingo_ast_type_csp_product: clingo_ast_type = 8;
-pub const clingo_ast_type_clingo_ast_type_csp_sum: clingo_ast_type = 9;
-pub const clingo_ast_type_clingo_ast_type_csp_guard: clingo_ast_type = 10;
-pub const clingo_ast_type_clingo_ast_type_boolean_constant: clingo_ast_type = 11;
-pub const clingo_ast_type_clingo_ast_type_symbolic_atom: clingo_ast_type = 12;
-pub const clingo_ast_type_clingo_ast_type_comparison: clingo_ast_type = 13;
-pub const clingo_ast_type_clingo_ast_type_csp_literal: clingo_ast_type = 14;
-pub const clingo_ast_type_clingo_ast_type_aggregate_guard: clingo_ast_type = 15;
-pub const clingo_ast_type_clingo_ast_type_conditional_literal: clingo_ast_type = 16;
-pub const clingo_ast_type_clingo_ast_type_aggregate: clingo_ast_type = 17;
-pub const clingo_ast_type_clingo_ast_type_body_aggregate_element: clingo_ast_type = 18;
-pub const clingo_ast_type_clingo_ast_type_body_aggregate: clingo_ast_type = 19;
-pub const clingo_ast_type_clingo_ast_type_head_aggregate_element: clingo_ast_type = 20;
-pub const clingo_ast_type_clingo_ast_type_head_aggregate: clingo_ast_type = 21;
-pub const clingo_ast_type_clingo_ast_type_disjunction: clingo_ast_type = 22;
-pub const clingo_ast_type_clingo_ast_type_disjoint_element: clingo_ast_type = 23;
-pub const clingo_ast_type_clingo_ast_type_disjoint: clingo_ast_type = 24;
-pub const clingo_ast_type_clingo_ast_type_theory_sequence: clingo_ast_type = 25;
-pub const clingo_ast_type_clingo_ast_type_theory_function: clingo_ast_type = 26;
-pub const clingo_ast_type_clingo_ast_type_theory_unparsed_term_element: clingo_ast_type = 27;
-pub const clingo_ast_type_clingo_ast_type_theory_unparsed_term: clingo_ast_type = 28;
-pub const clingo_ast_type_clingo_ast_type_theory_guard: clingo_ast_type = 29;
-pub const clingo_ast_type_clingo_ast_type_theory_atom_element: clingo_ast_type = 30;
-pub const clingo_ast_type_clingo_ast_type_theory_atom: clingo_ast_type = 31;
-pub const clingo_ast_type_clingo_ast_type_literal: clingo_ast_type = 32;
-pub const clingo_ast_type_clingo_ast_type_theory_operator_definition: clingo_ast_type = 33;
-pub const clingo_ast_type_clingo_ast_type_theory_term_definition: clingo_ast_type = 34;
-pub const clingo_ast_type_clingo_ast_type_theory_guard_definition: clingo_ast_type = 35;
-pub const clingo_ast_type_clingo_ast_type_theory_atom_definition: clingo_ast_type = 36;
-pub const clingo_ast_type_clingo_ast_type_rule: clingo_ast_type = 37;
-pub const clingo_ast_type_clingo_ast_type_definition: clingo_ast_type = 38;
-pub const clingo_ast_type_clingo_ast_type_show_signature: clingo_ast_type = 39;
-pub const clingo_ast_type_clingo_ast_type_show_term: clingo_ast_type = 40;
-pub const clingo_ast_type_clingo_ast_type_minimize: clingo_ast_type = 41;
-pub const clingo_ast_type_clingo_ast_type_script: clingo_ast_type = 42;
-pub const clingo_ast_type_clingo_ast_type_program: clingo_ast_type = 43;
-pub const clingo_ast_type_clingo_ast_type_external: clingo_ast_type = 44;
-pub const clingo_ast_type_clingo_ast_type_edge: clingo_ast_type = 45;
-pub const clingo_ast_type_clingo_ast_type_heuristic: clingo_ast_type = 46;
-pub const clingo_ast_type_clingo_ast_type_project_atom: clingo_ast_type = 47;
-pub const clingo_ast_type_clingo_ast_type_project_signature: clingo_ast_type = 48;
-pub const clingo_ast_type_clingo_ast_type_defined: clingo_ast_type = 49;
-pub const clingo_ast_type_clingo_ast_type_theory_definition: clingo_ast_type = 50;
+pub const clingo_ast_type_e_clingo_ast_type_id: clingo_ast_type_e = 0;
+pub const clingo_ast_type_e_clingo_ast_type_variable: clingo_ast_type_e = 1;
+pub const clingo_ast_type_e_clingo_ast_type_symbolic_term: clingo_ast_type_e = 2;
+pub const clingo_ast_type_e_clingo_ast_type_unary_operation: clingo_ast_type_e = 3;
+pub const clingo_ast_type_e_clingo_ast_type_binary_operation: clingo_ast_type_e = 4;
+pub const clingo_ast_type_e_clingo_ast_type_interval: clingo_ast_type_e = 5;
+pub const clingo_ast_type_e_clingo_ast_type_function: clingo_ast_type_e = 6;
+pub const clingo_ast_type_e_clingo_ast_type_pool: clingo_ast_type_e = 7;
+pub const clingo_ast_type_e_clingo_ast_type_csp_product: clingo_ast_type_e = 8;
+pub const clingo_ast_type_e_clingo_ast_type_csp_sum: clingo_ast_type_e = 9;
+pub const clingo_ast_type_e_clingo_ast_type_csp_guard: clingo_ast_type_e = 10;
+pub const clingo_ast_type_e_clingo_ast_type_boolean_constant: clingo_ast_type_e = 11;
+pub const clingo_ast_type_e_clingo_ast_type_symbolic_atom: clingo_ast_type_e = 12;
+pub const clingo_ast_type_e_clingo_ast_type_comparison: clingo_ast_type_e = 13;
+pub const clingo_ast_type_e_clingo_ast_type_csp_literal: clingo_ast_type_e = 14;
+pub const clingo_ast_type_e_clingo_ast_type_aggregate_guard: clingo_ast_type_e = 15;
+pub const clingo_ast_type_e_clingo_ast_type_conditional_literal: clingo_ast_type_e = 16;
+pub const clingo_ast_type_e_clingo_ast_type_aggregate: clingo_ast_type_e = 17;
+pub const clingo_ast_type_e_clingo_ast_type_body_aggregate_element: clingo_ast_type_e = 18;
+pub const clingo_ast_type_e_clingo_ast_type_body_aggregate: clingo_ast_type_e = 19;
+pub const clingo_ast_type_e_clingo_ast_type_head_aggregate_element: clingo_ast_type_e = 20;
+pub const clingo_ast_type_e_clingo_ast_type_head_aggregate: clingo_ast_type_e = 21;
+pub const clingo_ast_type_e_clingo_ast_type_disjunction: clingo_ast_type_e = 22;
+pub const clingo_ast_type_e_clingo_ast_type_disjoint_element: clingo_ast_type_e = 23;
+pub const clingo_ast_type_e_clingo_ast_type_disjoint: clingo_ast_type_e = 24;
+pub const clingo_ast_type_e_clingo_ast_type_theory_sequence: clingo_ast_type_e = 25;
+pub const clingo_ast_type_e_clingo_ast_type_theory_function: clingo_ast_type_e = 26;
+pub const clingo_ast_type_e_clingo_ast_type_theory_unparsed_term_element: clingo_ast_type_e = 27;
+pub const clingo_ast_type_e_clingo_ast_type_theory_unparsed_term: clingo_ast_type_e = 28;
+pub const clingo_ast_type_e_clingo_ast_type_theory_guard: clingo_ast_type_e = 29;
+pub const clingo_ast_type_e_clingo_ast_type_theory_atom_element: clingo_ast_type_e = 30;
+pub const clingo_ast_type_e_clingo_ast_type_theory_atom: clingo_ast_type_e = 31;
+pub const clingo_ast_type_e_clingo_ast_type_literal: clingo_ast_type_e = 32;
+pub const clingo_ast_type_e_clingo_ast_type_theory_operator_definition: clingo_ast_type_e = 33;
+pub const clingo_ast_type_e_clingo_ast_type_theory_term_definition: clingo_ast_type_e = 34;
+pub const clingo_ast_type_e_clingo_ast_type_theory_guard_definition: clingo_ast_type_e = 35;
+pub const clingo_ast_type_e_clingo_ast_type_theory_atom_definition: clingo_ast_type_e = 36;
+pub const clingo_ast_type_e_clingo_ast_type_rule: clingo_ast_type_e = 37;
+pub const clingo_ast_type_e_clingo_ast_type_definition: clingo_ast_type_e = 38;
+pub const clingo_ast_type_e_clingo_ast_type_show_signature: clingo_ast_type_e = 39;
+pub const clingo_ast_type_e_clingo_ast_type_show_term: clingo_ast_type_e = 40;
+pub const clingo_ast_type_e_clingo_ast_type_minimize: clingo_ast_type_e = 41;
+pub const clingo_ast_type_e_clingo_ast_type_script: clingo_ast_type_e = 42;
+pub const clingo_ast_type_e_clingo_ast_type_program: clingo_ast_type_e = 43;
+pub const clingo_ast_type_e_clingo_ast_type_external: clingo_ast_type_e = 44;
+pub const clingo_ast_type_e_clingo_ast_type_edge: clingo_ast_type_e = 45;
+pub const clingo_ast_type_e_clingo_ast_type_heuristic: clingo_ast_type_e = 46;
+pub const clingo_ast_type_e_clingo_ast_type_project_atom: clingo_ast_type_e = 47;
+pub const clingo_ast_type_e_clingo_ast_type_project_signature: clingo_ast_type_e = 48;
+pub const clingo_ast_type_e_clingo_ast_type_defined: clingo_ast_type_e = 49;
+pub const clingo_ast_type_e_clingo_ast_type_theory_definition: clingo_ast_type_e = 50;
 #[doc = "! Enumeration of AST types."]
-pub type clingo_ast_type = ::std::os::raw::c_uint;
+pub type clingo_ast_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_type."]
 pub type clingo_ast_type_t = ::std::os::raw::c_int;
 #[doc = "!< For an attribute of type \"int\"."]
-pub const clingo_ast_attribute_type_clingo_ast_attribute_type_number: clingo_ast_attribute_type = 0;
+pub const clingo_ast_attribute_type_e_clingo_ast_attribute_type_number:
+    clingo_ast_attribute_type_e = 0;
 #[doc = "!< For an attribute of type \"clingo_ast_symbol_t\"."]
-pub const clingo_ast_attribute_type_clingo_ast_attribute_type_symbol: clingo_ast_attribute_type = 1;
+pub const clingo_ast_attribute_type_e_clingo_ast_attribute_type_symbol:
+    clingo_ast_attribute_type_e = 1;
 #[doc = "!< For an attribute of type \"clingo_location_t\"."]
-pub const clingo_ast_attribute_type_clingo_ast_attribute_type_location: clingo_ast_attribute_type =
-    2;
+pub const clingo_ast_attribute_type_e_clingo_ast_attribute_type_location:
+    clingo_ast_attribute_type_e = 2;
 #[doc = "!< For an attribute of type \"char const *\"."]
-pub const clingo_ast_attribute_type_clingo_ast_attribute_type_string: clingo_ast_attribute_type = 3;
+pub const clingo_ast_attribute_type_e_clingo_ast_attribute_type_string:
+    clingo_ast_attribute_type_e = 3;
 #[doc = "!< For an attribute of type \"clingo_ast_t *\"."]
-pub const clingo_ast_attribute_type_clingo_ast_attribute_type_ast: clingo_ast_attribute_type = 4;
+pub const clingo_ast_attribute_type_e_clingo_ast_attribute_type_ast: clingo_ast_attribute_type_e =
+    4;
 #[doc = "!< For an attribute of type \"clingo_ast_t *\" that can be NULL."]
-pub const clingo_ast_attribute_type_clingo_ast_attribute_type_optional_ast:
-    clingo_ast_attribute_type = 5;
+pub const clingo_ast_attribute_type_e_clingo_ast_attribute_type_optional_ast:
+    clingo_ast_attribute_type_e = 5;
 #[doc = "!< For an attribute of type \"char const **\"."]
-pub const clingo_ast_attribute_type_clingo_ast_attribute_type_string_array:
-    clingo_ast_attribute_type = 6;
+pub const clingo_ast_attribute_type_e_clingo_ast_attribute_type_string_array:
+    clingo_ast_attribute_type_e = 6;
 #[doc = "!< For an attribute of type \"clingo_ast_t **\"."]
-pub const clingo_ast_attribute_type_clingo_ast_attribute_type_ast_array: clingo_ast_attribute_type =
-    7;
+pub const clingo_ast_attribute_type_e_clingo_ast_attribute_type_ast_array:
+    clingo_ast_attribute_type_e = 7;
 #[doc = "! Enumeration of attributes types used by the AST."]
-pub type clingo_ast_attribute_type = ::std::os::raw::c_uint;
+pub type clingo_ast_attribute_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_attribute_type."]
 pub type clingo_ast_attribute_type_t = ::std::os::raw::c_int;
-pub const clingo_ast_attribute_clingo_ast_attribute_argument: clingo_ast_attribute = 0;
-pub const clingo_ast_attribute_clingo_ast_attribute_arguments: clingo_ast_attribute = 1;
-pub const clingo_ast_attribute_clingo_ast_attribute_arity: clingo_ast_attribute = 2;
-pub const clingo_ast_attribute_clingo_ast_attribute_atom: clingo_ast_attribute = 3;
-pub const clingo_ast_attribute_clingo_ast_attribute_atoms: clingo_ast_attribute = 4;
-pub const clingo_ast_attribute_clingo_ast_attribute_atom_type: clingo_ast_attribute = 5;
-pub const clingo_ast_attribute_clingo_ast_attribute_bias: clingo_ast_attribute = 6;
-pub const clingo_ast_attribute_clingo_ast_attribute_body: clingo_ast_attribute = 7;
-pub const clingo_ast_attribute_clingo_ast_attribute_code: clingo_ast_attribute = 8;
-pub const clingo_ast_attribute_clingo_ast_attribute_coefficient: clingo_ast_attribute = 9;
-pub const clingo_ast_attribute_clingo_ast_attribute_comparison: clingo_ast_attribute = 10;
-pub const clingo_ast_attribute_clingo_ast_attribute_condition: clingo_ast_attribute = 11;
-pub const clingo_ast_attribute_clingo_ast_attribute_csp: clingo_ast_attribute = 12;
-pub const clingo_ast_attribute_clingo_ast_attribute_elements: clingo_ast_attribute = 13;
-pub const clingo_ast_attribute_clingo_ast_attribute_external: clingo_ast_attribute = 14;
-pub const clingo_ast_attribute_clingo_ast_attribute_external_type: clingo_ast_attribute = 15;
-pub const clingo_ast_attribute_clingo_ast_attribute_function: clingo_ast_attribute = 16;
-pub const clingo_ast_attribute_clingo_ast_attribute_guard: clingo_ast_attribute = 17;
-pub const clingo_ast_attribute_clingo_ast_attribute_guards: clingo_ast_attribute = 18;
-pub const clingo_ast_attribute_clingo_ast_attribute_head: clingo_ast_attribute = 19;
-pub const clingo_ast_attribute_clingo_ast_attribute_is_default: clingo_ast_attribute = 20;
-pub const clingo_ast_attribute_clingo_ast_attribute_left: clingo_ast_attribute = 21;
-pub const clingo_ast_attribute_clingo_ast_attribute_left_guard: clingo_ast_attribute = 22;
-pub const clingo_ast_attribute_clingo_ast_attribute_literal: clingo_ast_attribute = 23;
-pub const clingo_ast_attribute_clingo_ast_attribute_location: clingo_ast_attribute = 24;
-pub const clingo_ast_attribute_clingo_ast_attribute_modifier: clingo_ast_attribute = 25;
-pub const clingo_ast_attribute_clingo_ast_attribute_name: clingo_ast_attribute = 26;
-pub const clingo_ast_attribute_clingo_ast_attribute_node_u: clingo_ast_attribute = 27;
-pub const clingo_ast_attribute_clingo_ast_attribute_node_v: clingo_ast_attribute = 28;
-pub const clingo_ast_attribute_clingo_ast_attribute_operator_name: clingo_ast_attribute = 29;
-pub const clingo_ast_attribute_clingo_ast_attribute_operator_type: clingo_ast_attribute = 30;
-pub const clingo_ast_attribute_clingo_ast_attribute_operators: clingo_ast_attribute = 31;
-pub const clingo_ast_attribute_clingo_ast_attribute_parameters: clingo_ast_attribute = 32;
-pub const clingo_ast_attribute_clingo_ast_attribute_positive: clingo_ast_attribute = 33;
-pub const clingo_ast_attribute_clingo_ast_attribute_priority: clingo_ast_attribute = 34;
-pub const clingo_ast_attribute_clingo_ast_attribute_right: clingo_ast_attribute = 35;
-pub const clingo_ast_attribute_clingo_ast_attribute_right_guard: clingo_ast_attribute = 36;
-pub const clingo_ast_attribute_clingo_ast_attribute_script_type: clingo_ast_attribute = 37;
-pub const clingo_ast_attribute_clingo_ast_attribute_sequence_type: clingo_ast_attribute = 38;
-pub const clingo_ast_attribute_clingo_ast_attribute_sign: clingo_ast_attribute = 39;
-pub const clingo_ast_attribute_clingo_ast_attribute_symbol: clingo_ast_attribute = 40;
-pub const clingo_ast_attribute_clingo_ast_attribute_term: clingo_ast_attribute = 41;
-pub const clingo_ast_attribute_clingo_ast_attribute_terms: clingo_ast_attribute = 42;
-pub const clingo_ast_attribute_clingo_ast_attribute_value: clingo_ast_attribute = 43;
-pub const clingo_ast_attribute_clingo_ast_attribute_variable: clingo_ast_attribute = 44;
-pub const clingo_ast_attribute_clingo_ast_attribute_weight: clingo_ast_attribute = 45;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_argument: clingo_ast_attribute_e = 0;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_arguments: clingo_ast_attribute_e = 1;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_arity: clingo_ast_attribute_e = 2;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_atom: clingo_ast_attribute_e = 3;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_atoms: clingo_ast_attribute_e = 4;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_atom_type: clingo_ast_attribute_e = 5;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_bias: clingo_ast_attribute_e = 6;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_body: clingo_ast_attribute_e = 7;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_code: clingo_ast_attribute_e = 8;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_coefficient: clingo_ast_attribute_e = 9;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_comparison: clingo_ast_attribute_e = 10;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_condition: clingo_ast_attribute_e = 11;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_csp: clingo_ast_attribute_e = 12;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_elements: clingo_ast_attribute_e = 13;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_external: clingo_ast_attribute_e = 14;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_external_type: clingo_ast_attribute_e = 15;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_function: clingo_ast_attribute_e = 16;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_guard: clingo_ast_attribute_e = 17;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_guards: clingo_ast_attribute_e = 18;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_head: clingo_ast_attribute_e = 19;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_is_default: clingo_ast_attribute_e = 20;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_left: clingo_ast_attribute_e = 21;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_left_guard: clingo_ast_attribute_e = 22;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_literal: clingo_ast_attribute_e = 23;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_location: clingo_ast_attribute_e = 24;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_modifier: clingo_ast_attribute_e = 25;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_name: clingo_ast_attribute_e = 26;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_node_u: clingo_ast_attribute_e = 27;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_node_v: clingo_ast_attribute_e = 28;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_operator_name: clingo_ast_attribute_e = 29;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_operator_type: clingo_ast_attribute_e = 30;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_operators: clingo_ast_attribute_e = 31;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_parameters: clingo_ast_attribute_e = 32;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_positive: clingo_ast_attribute_e = 33;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_priority: clingo_ast_attribute_e = 34;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_right: clingo_ast_attribute_e = 35;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_right_guard: clingo_ast_attribute_e = 36;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_script_type: clingo_ast_attribute_e = 37;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_sequence_type: clingo_ast_attribute_e = 38;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_sign: clingo_ast_attribute_e = 39;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_symbol: clingo_ast_attribute_e = 40;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_term: clingo_ast_attribute_e = 41;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_terms: clingo_ast_attribute_e = 42;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_value: clingo_ast_attribute_e = 43;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_variable: clingo_ast_attribute_e = 44;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_weight: clingo_ast_attribute_e = 45;
 #[doc = "! Enumeration of attributes used by the AST."]
-pub type clingo_ast_attribute = ::std::os::raw::c_uint;
+pub type clingo_ast_attribute_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_attribute."]
 pub type clingo_ast_attribute_t = ::std::os::raw::c_int;
 #[doc = "! Struct to map attributes to their string representation."]
@@ -3449,7 +3461,7 @@ pub type clingo_ast_attribute_names_t = clingo_ast_attribute_names;
 extern "C" {
     pub static mut g_clingo_ast_attribute_names: clingo_ast_attribute_names_t;
 }
-#[doc = "! Strut to define an argument that consits of a name and a type."]
+#[doc = "! Struct to define an argument that consists of a name and a type."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct clingo_ast_argument {
@@ -3489,7 +3501,7 @@ fn bindgen_test_layout_clingo_ast_argument() {
         )
     );
 }
-#[doc = "! Strut to define an argument that consits of a name and a type."]
+#[doc = "! Struct to define an argument that consists of a name and a type."]
 pub type clingo_ast_argument_t = clingo_ast_argument;
 #[doc = "! A lists of required attributes to construct an AST."]
 #[repr(C)]
@@ -4063,7 +4075,7 @@ extern "C" {
 #[doc = "! @param[in] ast the AST"]
 #[doc = "! @param[in] data a user data pointer"]
 #[doc = "! @return whether the call was successful"]
-pub type clingo_ast_callback_v2_t = ::std::option::Option<
+pub type clingo_ast_callback_t = ::std::option::Option<
     unsafe extern "C" fn(ast: *mut clingo_ast_t, data: *mut ::std::os::raw::c_void) -> bool,
 >;
 extern "C" {
@@ -4080,7 +4092,7 @@ extern "C" {
     #[doc = "! - ::clingo_error_bad_alloc"]
     pub fn clingo_ast_parse_string(
         program: *const ::std::os::raw::c_char,
-        callback: clingo_ast_callback_v2_t,
+        callback: clingo_ast_callback_t,
         callback_data: *mut ::std::os::raw::c_void,
         logger: clingo_logger_t,
         logger_data: *mut ::std::os::raw::c_void,
@@ -4106,7 +4118,7 @@ extern "C" {
     pub fn clingo_ast_parse_files(
         files: *const *const ::std::os::raw::c_char,
         size: usize,
-        callback: clingo_ast_callback_v2_t,
+        callback: clingo_ast_callback_t,
         callback_data: *mut ::std::os::raw::c_void,
         logger: clingo_logger_t,
         logger_data: *mut ::std::os::raw::c_void,
@@ -4143,19 +4155,19 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime for statements of invalid form or AST nodes that do not represent statements"]
     #[doc = "! - ::clingo_error_bad_alloc"]
-    pub fn clingo_program_builder_add_ast(
+    pub fn clingo_program_builder_add(
         builder: *mut clingo_program_builder_t,
         ast: *mut clingo_ast_t,
     ) -> bool;
 }
 #[doc = "!< To only unpool conditions of conditional literals."]
-pub const clingo_ast_unpool_type_clingo_ast_unpool_type_condition: clingo_ast_unpool_type = 1;
+pub const clingo_ast_unpool_type_e_clingo_ast_unpool_type_condition: clingo_ast_unpool_type_e = 1;
 #[doc = "!< To unpool everything except conditions of conditional literals."]
-pub const clingo_ast_unpool_type_clingo_ast_unpool_type_other: clingo_ast_unpool_type = 2;
-#[doc = "!< To only unpool everytihng."]
-pub const clingo_ast_unpool_type_clingo_ast_unpool_type_all: clingo_ast_unpool_type = 3;
+pub const clingo_ast_unpool_type_e_clingo_ast_unpool_type_other: clingo_ast_unpool_type_e = 2;
+#[doc = "!< To unpool everything."]
+pub const clingo_ast_unpool_type_e_clingo_ast_unpool_type_all: clingo_ast_unpool_type_e = 3;
 #[doc = "! Enum to configure unpooling."]
-pub type clingo_ast_unpool_type = ::std::os::raw::c_uint;
+pub type clingo_ast_unpool_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_unpool_type."]
 pub type clingo_ast_unpool_type_bitset_t = ::std::os::raw::c_int;
 extern "C" {
@@ -4170,3796 +4182,8 @@ extern "C" {
     pub fn clingo_ast_unpool(
         ast: *mut clingo_ast_t,
         unpool_type: clingo_ast_unpool_type_bitset_t,
-        callback: clingo_ast_callback_v2_t,
-        callback_data: *mut ::std::os::raw::c_void,
-    ) -> bool;
-}
-pub const clingo_ast_term_type_clingo_ast_term_type_symbol: clingo_ast_term_type = 0;
-pub const clingo_ast_term_type_clingo_ast_term_type_variable: clingo_ast_term_type = 1;
-pub const clingo_ast_term_type_clingo_ast_term_type_unary_operation: clingo_ast_term_type = 2;
-pub const clingo_ast_term_type_clingo_ast_term_type_binary_operation: clingo_ast_term_type = 3;
-pub const clingo_ast_term_type_clingo_ast_term_type_interval: clingo_ast_term_type = 4;
-pub const clingo_ast_term_type_clingo_ast_term_type_function: clingo_ast_term_type = 5;
-pub const clingo_ast_term_type_clingo_ast_term_type_external_function: clingo_ast_term_type = 6;
-pub const clingo_ast_term_type_clingo_ast_term_type_pool: clingo_ast_term_type = 7;
-pub type clingo_ast_term_type = ::std::os::raw::c_uint;
-pub type clingo_ast_term_type_t = ::std::os::raw::c_int;
-pub type clingo_ast_unary_operation_t = clingo_ast_unary_operation;
-pub type clingo_ast_binary_operation_t = clingo_ast_binary_operation;
-pub type clingo_ast_interval_t = clingo_ast_interval;
-pub type clingo_ast_function_t = clingo_ast_function;
-pub type clingo_ast_pool_t = clingo_ast_pool;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_term {
-    pub location: clingo_location_t,
-    pub type_: clingo_ast_term_type_t,
-    pub __bindgen_anon_1: clingo_ast_term__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union clingo_ast_term__bindgen_ty_1 {
-    pub symbol: clingo_symbol_t,
-    pub variable: *const ::std::os::raw::c_char,
-    pub unary_operation: *const clingo_ast_unary_operation_t,
-    pub binary_operation: *const clingo_ast_binary_operation_t,
-    pub interval: *const clingo_ast_interval_t,
-    pub function: *const clingo_ast_function_t,
-    pub external_function: *const clingo_ast_function_t,
-    pub pool: *const clingo_ast_pool_t,
-    _bindgen_union_align: u64,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_term__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_term__bindgen_ty_1>(),
-        8usize,
-        concat!("Size of: ", stringify!(clingo_ast_term__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_term__bindgen_ty_1>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_term__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_term__bindgen_ty_1>())).symbol as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term__bindgen_ty_1),
-            "::",
-            stringify!(symbol)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_term__bindgen_ty_1>())).variable as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term__bindgen_ty_1),
-            "::",
-            stringify!(variable)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_term__bindgen_ty_1>())).unary_operation as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term__bindgen_ty_1),
-            "::",
-            stringify!(unary_operation)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_term__bindgen_ty_1>())).binary_operation as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term__bindgen_ty_1),
-            "::",
-            stringify!(binary_operation)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_term__bindgen_ty_1>())).interval as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term__bindgen_ty_1),
-            "::",
-            stringify!(interval)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_term__bindgen_ty_1>())).function as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term__bindgen_ty_1),
-            "::",
-            stringify!(function)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_term__bindgen_ty_1>())).external_function as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term__bindgen_ty_1),
-            "::",
-            stringify!(external_function)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_term__bindgen_ty_1>())).pool as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term__bindgen_ty_1),
-            "::",
-            stringify!(pool)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_term() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_term>(),
-        64usize,
-        concat!("Size of: ", stringify!(clingo_ast_term))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_term>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_term))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_term>())).location as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_term>())).type_ as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_term),
-            "::",
-            stringify!(type_)
-        )
-    );
-}
-pub type clingo_ast_term_t = clingo_ast_term;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_unary_operation {
-    pub unary_operator: clingo_ast_unary_operator_t,
-    pub argument: clingo_ast_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_unary_operation() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_unary_operation>(),
-        72usize,
-        concat!("Size of: ", stringify!(clingo_ast_unary_operation))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_unary_operation>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_unary_operation))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_unary_operation>())).unary_operator as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_unary_operation),
-            "::",
-            stringify!(unary_operator)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_unary_operation>())).argument as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_unary_operation),
-            "::",
-            stringify!(argument)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_binary_operation {
-    pub binary_operator: clingo_ast_binary_operator_t,
-    pub left: clingo_ast_term_t,
-    pub right: clingo_ast_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_binary_operation() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_binary_operation>(),
-        136usize,
-        concat!("Size of: ", stringify!(clingo_ast_binary_operation))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_binary_operation>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_binary_operation))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_binary_operation>())).binary_operator as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_binary_operation),
-            "::",
-            stringify!(binary_operator)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_binary_operation>())).left as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_binary_operation),
-            "::",
-            stringify!(left)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_binary_operation>())).right as *const _ as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_binary_operation),
-            "::",
-            stringify!(right)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_interval {
-    pub left: clingo_ast_term_t,
-    pub right: clingo_ast_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_interval() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_interval>(),
-        128usize,
-        concat!("Size of: ", stringify!(clingo_ast_interval))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_interval>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_interval))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_interval>())).left as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_interval),
-            "::",
-            stringify!(left)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_interval>())).right as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_interval),
-            "::",
-            stringify!(right)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_function {
-    pub name: *const ::std::os::raw::c_char,
-    pub arguments: *const clingo_ast_term_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_function() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_function>(),
-        24usize,
-        concat!("Size of: ", stringify!(clingo_ast_function))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_function>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_function))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_function>())).name as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_function),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_function>())).arguments as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_function),
-            "::",
-            stringify!(arguments)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_function>())).size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_function),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_pool {
-    pub arguments: *const clingo_ast_term_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_pool() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_pool>(),
-        16usize,
-        concat!("Size of: ", stringify!(clingo_ast_pool))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_pool>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_pool))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_pool>())).arguments as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_pool),
-            "::",
-            stringify!(arguments)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_pool>())).size as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_pool),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_csp_product_term {
-    pub location: clingo_location_t,
-    pub coefficient: clingo_ast_term_t,
-    pub variable: *const clingo_ast_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_csp_product_term() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_csp_product_term>(),
-        120usize,
-        concat!("Size of: ", stringify!(clingo_ast_csp_product_term))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_csp_product_term>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_csp_product_term))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_csp_product_term>())).location as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_product_term),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_csp_product_term>())).coefficient as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_product_term),
-            "::",
-            stringify!(coefficient)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_csp_product_term>())).variable as *const _ as usize
-        },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_product_term),
-            "::",
-            stringify!(variable)
-        )
-    );
-}
-pub type clingo_ast_csp_product_term_t = clingo_ast_csp_product_term;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_csp_sum_term {
-    pub location: clingo_location_t,
-    pub terms: *const clingo_ast_csp_product_term_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_csp_sum_term() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_csp_sum_term>(),
-        64usize,
-        concat!("Size of: ", stringify!(clingo_ast_csp_sum_term))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_csp_sum_term>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_csp_sum_term))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_csp_sum_term>())).location as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_sum_term),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_csp_sum_term>())).terms as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_sum_term),
-            "::",
-            stringify!(terms)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_csp_sum_term>())).size as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_sum_term),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_csp_sum_term_t = clingo_ast_csp_sum_term;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_csp_guard {
-    pub comparison: clingo_ast_comparison_operator_t,
-    pub term: clingo_ast_csp_sum_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_csp_guard() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_csp_guard>(),
-        72usize,
-        concat!("Size of: ", stringify!(clingo_ast_csp_guard))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_csp_guard>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_csp_guard))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_csp_guard>())).comparison as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_guard),
-            "::",
-            stringify!(comparison)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_csp_guard>())).term as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_guard),
-            "::",
-            stringify!(term)
-        )
-    );
-}
-pub type clingo_ast_csp_guard_t = clingo_ast_csp_guard;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_csp_literal {
-    pub term: clingo_ast_csp_sum_term_t,
-    pub guards: *const clingo_ast_csp_guard_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_csp_literal() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_csp_literal>(),
-        80usize,
-        concat!("Size of: ", stringify!(clingo_ast_csp_literal))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_csp_literal>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_csp_literal))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_csp_literal>())).term as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_literal),
-            "::",
-            stringify!(term)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_csp_literal>())).guards as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_literal),
-            "::",
-            stringify!(guards)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_csp_literal>())).size as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_csp_literal),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_csp_literal_t = clingo_ast_csp_literal;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_id {
-    pub location: clingo_location_t,
-    pub id: *const ::std::os::raw::c_char,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_id() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_id>(),
-        56usize,
-        concat!("Size of: ", stringify!(clingo_ast_id))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_id>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_id))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_id>())).location as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_id),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_id>())).id as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_id),
-            "::",
-            stringify!(id)
-        )
-    );
-}
-pub type clingo_ast_id_t = clingo_ast_id;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_comparison {
-    pub comparison: clingo_ast_comparison_operator_t,
-    pub left: clingo_ast_term_t,
-    pub right: clingo_ast_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_comparison() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_comparison>(),
-        136usize,
-        concat!("Size of: ", stringify!(clingo_ast_comparison))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_comparison>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_comparison))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_comparison>())).comparison as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_comparison),
-            "::",
-            stringify!(comparison)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_comparison>())).left as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_comparison),
-            "::",
-            stringify!(left)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_comparison>())).right as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_comparison),
-            "::",
-            stringify!(right)
-        )
-    );
-}
-pub type clingo_ast_comparison_t = clingo_ast_comparison;
-pub const clingo_ast_literal_type_clingo_ast_literal_type_boolean: clingo_ast_literal_type = 0;
-pub const clingo_ast_literal_type_clingo_ast_literal_type_symbolic: clingo_ast_literal_type = 1;
-pub const clingo_ast_literal_type_clingo_ast_literal_type_comparison: clingo_ast_literal_type = 2;
-pub const clingo_ast_literal_type_clingo_ast_literal_type_csp: clingo_ast_literal_type = 3;
-pub type clingo_ast_literal_type = ::std::os::raw::c_uint;
-pub type clingo_ast_literal_type_t = ::std::os::raw::c_int;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_literal {
-    pub location: clingo_location_t,
-    pub sign: clingo_ast_sign_t,
-    pub type_: clingo_ast_literal_type_t,
-    pub __bindgen_anon_1: clingo_ast_literal__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union clingo_ast_literal__bindgen_ty_1 {
-    pub boolean: bool,
-    pub symbol: *const clingo_ast_term_t,
-    pub comparison: *const clingo_ast_comparison_t,
-    pub csp_literal: *const clingo_ast_csp_literal_t,
-    _bindgen_union_align: u64,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_literal__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_literal__bindgen_ty_1>(),
-        8usize,
-        concat!("Size of: ", stringify!(clingo_ast_literal__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_literal__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_literal__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_literal__bindgen_ty_1>())).boolean as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_literal__bindgen_ty_1),
-            "::",
-            stringify!(boolean)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_literal__bindgen_ty_1>())).symbol as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_literal__bindgen_ty_1),
-            "::",
-            stringify!(symbol)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_literal__bindgen_ty_1>())).comparison as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_literal__bindgen_ty_1),
-            "::",
-            stringify!(comparison)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_literal__bindgen_ty_1>())).csp_literal as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_literal__bindgen_ty_1),
-            "::",
-            stringify!(csp_literal)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_literal() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_literal>(),
-        64usize,
-        concat!("Size of: ", stringify!(clingo_ast_literal))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_literal>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_literal))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_literal>())).location as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_literal),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_literal>())).sign as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_literal),
-            "::",
-            stringify!(sign)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_literal>())).type_ as *const _ as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_literal),
-            "::",
-            stringify!(type_)
-        )
-    );
-}
-pub type clingo_ast_literal_t = clingo_ast_literal;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_aggregate_guard {
-    pub comparison: clingo_ast_comparison_operator_t,
-    pub term: clingo_ast_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_aggregate_guard() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_aggregate_guard>(),
-        72usize,
-        concat!("Size of: ", stringify!(clingo_ast_aggregate_guard))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_aggregate_guard>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_aggregate_guard))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_aggregate_guard>())).comparison as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_aggregate_guard),
-            "::",
-            stringify!(comparison)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_aggregate_guard>())).term as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_aggregate_guard),
-            "::",
-            stringify!(term)
-        )
-    );
-}
-pub type clingo_ast_aggregate_guard_t = clingo_ast_aggregate_guard;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_conditional_literal {
-    pub literal: clingo_ast_literal_t,
-    pub condition: *const clingo_ast_literal_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_conditional_literal() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_conditional_literal>(),
-        80usize,
-        concat!("Size of: ", stringify!(clingo_ast_conditional_literal))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_conditional_literal>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_conditional_literal))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_conditional_literal>())).literal as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_conditional_literal),
-            "::",
-            stringify!(literal)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_conditional_literal>())).condition as *const _
-                as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_conditional_literal),
-            "::",
-            stringify!(condition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_conditional_literal>())).size as *const _ as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_conditional_literal),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_conditional_literal_t = clingo_ast_conditional_literal;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_aggregate {
-    pub elements: *const clingo_ast_conditional_literal_t,
-    pub size: usize,
-    pub left_guard: *const clingo_ast_aggregate_guard_t,
-    pub right_guard: *const clingo_ast_aggregate_guard_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_aggregate() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_aggregate>(),
-        32usize,
-        concat!("Size of: ", stringify!(clingo_ast_aggregate))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_aggregate>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_aggregate))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_aggregate>())).elements as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_aggregate),
-            "::",
-            stringify!(elements)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_aggregate>())).size as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_aggregate),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_aggregate>())).left_guard as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_aggregate),
-            "::",
-            stringify!(left_guard)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_aggregate>())).right_guard as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_aggregate),
-            "::",
-            stringify!(right_guard)
-        )
-    );
-}
-pub type clingo_ast_aggregate_t = clingo_ast_aggregate;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_body_aggregate_element {
-    pub tuple: *const clingo_ast_term_t,
-    pub tuple_size: usize,
-    pub condition: *const clingo_ast_literal_t,
-    pub condition_size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_body_aggregate_element() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_body_aggregate_element>(),
-        32usize,
-        concat!("Size of: ", stringify!(clingo_ast_body_aggregate_element))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_body_aggregate_element>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_body_aggregate_element)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_aggregate_element>())).tuple as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_aggregate_element),
-            "::",
-            stringify!(tuple)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_aggregate_element>())).tuple_size as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_aggregate_element),
-            "::",
-            stringify!(tuple_size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_aggregate_element>())).condition as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_aggregate_element),
-            "::",
-            stringify!(condition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_aggregate_element>())).condition_size as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_aggregate_element),
-            "::",
-            stringify!(condition_size)
-        )
-    );
-}
-pub type clingo_ast_body_aggregate_element_t = clingo_ast_body_aggregate_element;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_body_aggregate {
-    pub function: clingo_ast_aggregate_function_t,
-    pub elements: *const clingo_ast_body_aggregate_element_t,
-    pub size: usize,
-    pub left_guard: *const clingo_ast_aggregate_guard_t,
-    pub right_guard: *const clingo_ast_aggregate_guard_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_body_aggregate() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_body_aggregate>(),
-        40usize,
-        concat!("Size of: ", stringify!(clingo_ast_body_aggregate))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_body_aggregate>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_body_aggregate))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_aggregate>())).function as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_aggregate),
-            "::",
-            stringify!(function)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_aggregate>())).elements as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_aggregate),
-            "::",
-            stringify!(elements)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_body_aggregate>())).size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_aggregate),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_aggregate>())).left_guard as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_aggregate),
-            "::",
-            stringify!(left_guard)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_aggregate>())).right_guard as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_aggregate),
-            "::",
-            stringify!(right_guard)
-        )
-    );
-}
-pub type clingo_ast_body_aggregate_t = clingo_ast_body_aggregate;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_head_aggregate_element {
-    pub tuple: *const clingo_ast_term_t,
-    pub tuple_size: usize,
-    pub conditional_literal: clingo_ast_conditional_literal_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_head_aggregate_element() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_head_aggregate_element>(),
-        96usize,
-        concat!("Size of: ", stringify!(clingo_ast_head_aggregate_element))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_head_aggregate_element>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_head_aggregate_element)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_aggregate_element>())).tuple as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_aggregate_element),
-            "::",
-            stringify!(tuple)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_aggregate_element>())).tuple_size as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_aggregate_element),
-            "::",
-            stringify!(tuple_size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_aggregate_element>())).conditional_literal
-                as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_aggregate_element),
-            "::",
-            stringify!(conditional_literal)
-        )
-    );
-}
-pub type clingo_ast_head_aggregate_element_t = clingo_ast_head_aggregate_element;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_head_aggregate {
-    pub function: clingo_ast_aggregate_function_t,
-    pub elements: *const clingo_ast_head_aggregate_element_t,
-    pub size: usize,
-    pub left_guard: *const clingo_ast_aggregate_guard_t,
-    pub right_guard: *const clingo_ast_aggregate_guard_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_head_aggregate() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_head_aggregate>(),
-        40usize,
-        concat!("Size of: ", stringify!(clingo_ast_head_aggregate))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_head_aggregate>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_head_aggregate))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_aggregate>())).function as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_aggregate),
-            "::",
-            stringify!(function)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_aggregate>())).elements as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_aggregate),
-            "::",
-            stringify!(elements)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_head_aggregate>())).size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_aggregate),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_aggregate>())).left_guard as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_aggregate),
-            "::",
-            stringify!(left_guard)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_aggregate>())).right_guard as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_aggregate),
-            "::",
-            stringify!(right_guard)
-        )
-    );
-}
-pub type clingo_ast_head_aggregate_t = clingo_ast_head_aggregate;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_disjunction {
-    pub elements: *const clingo_ast_conditional_literal_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_disjunction() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_disjunction>(),
-        16usize,
-        concat!("Size of: ", stringify!(clingo_ast_disjunction))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_disjunction>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_disjunction))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_disjunction>())).elements as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjunction),
-            "::",
-            stringify!(elements)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_disjunction>())).size as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjunction),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_disjunction_t = clingo_ast_disjunction;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_disjoint_element {
-    pub location: clingo_location_t,
-    pub tuple: *const clingo_ast_term_t,
-    pub tuple_size: usize,
-    pub term: clingo_ast_csp_sum_term_t,
-    pub condition: *const clingo_ast_literal_t,
-    pub condition_size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_disjoint_element() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_disjoint_element>(),
-        144usize,
-        concat!("Size of: ", stringify!(clingo_ast_disjoint_element))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_disjoint_element>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_disjoint_element))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_disjoint_element>())).location as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjoint_element),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_disjoint_element>())).tuple as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjoint_element),
-            "::",
-            stringify!(tuple)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_disjoint_element>())).tuple_size as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjoint_element),
-            "::",
-            stringify!(tuple_size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_disjoint_element>())).term as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjoint_element),
-            "::",
-            stringify!(term)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_disjoint_element>())).condition as *const _ as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjoint_element),
-            "::",
-            stringify!(condition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_disjoint_element>())).condition_size as *const _
-                as usize
-        },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjoint_element),
-            "::",
-            stringify!(condition_size)
-        )
-    );
-}
-pub type clingo_ast_disjoint_element_t = clingo_ast_disjoint_element;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_disjoint {
-    pub elements: *const clingo_ast_disjoint_element_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_disjoint() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_disjoint>(),
-        16usize,
-        concat!("Size of: ", stringify!(clingo_ast_disjoint))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_disjoint>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_disjoint))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_disjoint>())).elements as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjoint),
-            "::",
-            stringify!(elements)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_disjoint>())).size as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_disjoint),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_disjoint_t = clingo_ast_disjoint;
-pub const clingo_ast_theory_term_type_clingo_ast_theory_term_type_symbol:
-    clingo_ast_theory_term_type = 0;
-pub const clingo_ast_theory_term_type_clingo_ast_theory_term_type_variable:
-    clingo_ast_theory_term_type = 1;
-pub const clingo_ast_theory_term_type_clingo_ast_theory_term_type_tuple:
-    clingo_ast_theory_term_type = 2;
-pub const clingo_ast_theory_term_type_clingo_ast_theory_term_type_list:
-    clingo_ast_theory_term_type = 3;
-pub const clingo_ast_theory_term_type_clingo_ast_theory_term_type_set: clingo_ast_theory_term_type =
-    4;
-pub const clingo_ast_theory_term_type_clingo_ast_theory_term_type_function:
-    clingo_ast_theory_term_type = 5;
-pub const clingo_ast_theory_term_type_clingo_ast_theory_term_type_unparsed_term:
-    clingo_ast_theory_term_type = 6;
-pub type clingo_ast_theory_term_type = ::std::os::raw::c_uint;
-pub type clingo_ast_theory_term_type_t = ::std::os::raw::c_int;
-pub type clingo_ast_theory_function_t = clingo_ast_theory_function;
-pub type clingo_ast_theory_term_array_t = clingo_ast_theory_term_array;
-pub type clingo_ast_theory_unparsed_term_t = clingo_ast_theory_unparsed_term;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_theory_term {
-    pub location: clingo_location_t,
-    pub type_: clingo_ast_theory_term_type_t,
-    pub __bindgen_anon_1: clingo_ast_theory_term__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union clingo_ast_theory_term__bindgen_ty_1 {
-    pub symbol: clingo_symbol_t,
-    pub variable: *const ::std::os::raw::c_char,
-    pub tuple: *const clingo_ast_theory_term_array_t,
-    pub list: *const clingo_ast_theory_term_array_t,
-    pub set: *const clingo_ast_theory_term_array_t,
-    pub function: *const clingo_ast_theory_function_t,
-    pub unparsed_term: *const clingo_ast_theory_unparsed_term_t,
-    _bindgen_union_align: u64,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_term__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_term__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(clingo_ast_theory_term__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_term__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_theory_term__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term__bindgen_ty_1>())).symbol as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term__bindgen_ty_1),
-            "::",
-            stringify!(symbol)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term__bindgen_ty_1>())).variable as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term__bindgen_ty_1),
-            "::",
-            stringify!(variable)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term__bindgen_ty_1>())).tuple as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term__bindgen_ty_1),
-            "::",
-            stringify!(tuple)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term__bindgen_ty_1>())).list as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term__bindgen_ty_1),
-            "::",
-            stringify!(list)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term__bindgen_ty_1>())).set as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term__bindgen_ty_1),
-            "::",
-            stringify!(set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term__bindgen_ty_1>())).function as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term__bindgen_ty_1),
-            "::",
-            stringify!(function)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term__bindgen_ty_1>())).unparsed_term
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term__bindgen_ty_1),
-            "::",
-            stringify!(unparsed_term)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_term() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_term>(),
-        64usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_term))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_term>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_theory_term))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_theory_term>())).location as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_theory_term>())).type_ as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term),
-            "::",
-            stringify!(type_)
-        )
-    );
-}
-pub type clingo_ast_theory_term_t = clingo_ast_theory_term;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_theory_term_array {
-    pub terms: *const clingo_ast_theory_term_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_term_array() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_term_array>(),
-        16usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_term_array))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_term_array>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_theory_term_array))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term_array>())).terms as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term_array),
-            "::",
-            stringify!(terms)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term_array>())).size as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term_array),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_theory_function {
-    pub name: *const ::std::os::raw::c_char,
-    pub arguments: *const clingo_ast_theory_term_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_function() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_function>(),
-        24usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_function))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_function>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_theory_function))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_theory_function>())).name as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_function),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_function>())).arguments as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_function),
-            "::",
-            stringify!(arguments)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_theory_function>())).size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_function),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_theory_unparsed_term_element {
-    pub operators: *const *const ::std::os::raw::c_char,
-    pub size: usize,
-    pub term: clingo_ast_theory_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_unparsed_term_element() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_unparsed_term_element>(),
-        80usize,
-        concat!(
-            "Size of: ",
-            stringify!(clingo_ast_theory_unparsed_term_element)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_unparsed_term_element>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_theory_unparsed_term_element)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_unparsed_term_element>())).operators
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_unparsed_term_element),
-            "::",
-            stringify!(operators)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_unparsed_term_element>())).size as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_unparsed_term_element),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_unparsed_term_element>())).term as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_unparsed_term_element),
-            "::",
-            stringify!(term)
-        )
-    );
-}
-pub type clingo_ast_theory_unparsed_term_element_t = clingo_ast_theory_unparsed_term_element;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_theory_unparsed_term {
-    pub elements: *const clingo_ast_theory_unparsed_term_element_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_unparsed_term() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_unparsed_term>(),
-        16usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_unparsed_term))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_unparsed_term>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_theory_unparsed_term))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_unparsed_term>())).elements as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_unparsed_term),
-            "::",
-            stringify!(elements)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_unparsed_term>())).size as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_unparsed_term),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_theory_atom_element {
-    pub tuple: *const clingo_ast_theory_term_t,
-    pub tuple_size: usize,
-    pub condition: *const clingo_ast_literal_t,
-    pub condition_size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_atom_element() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_atom_element>(),
-        32usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_atom_element))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_atom_element>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_theory_atom_element))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_element>())).tuple as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_element),
-            "::",
-            stringify!(tuple)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_element>())).tuple_size as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_element),
-            "::",
-            stringify!(tuple_size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_element>())).condition as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_element),
-            "::",
-            stringify!(condition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_element>())).condition_size as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_element),
-            "::",
-            stringify!(condition_size)
-        )
-    );
-}
-pub type clingo_ast_theory_atom_element_t = clingo_ast_theory_atom_element;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_theory_guard {
-    pub operator_name: *const ::std::os::raw::c_char,
-    pub term: clingo_ast_theory_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_guard() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_guard>(),
-        72usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_guard))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_guard>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_theory_guard))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_guard>())).operator_name as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_guard),
-            "::",
-            stringify!(operator_name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_theory_guard>())).term as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_guard),
-            "::",
-            stringify!(term)
-        )
-    );
-}
-pub type clingo_ast_theory_guard_t = clingo_ast_theory_guard;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_theory_atom {
-    pub term: clingo_ast_term_t,
-    pub elements: *const clingo_ast_theory_atom_element_t,
-    pub size: usize,
-    pub guard: *const clingo_ast_theory_guard_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_atom() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_atom>(),
-        88usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_atom))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_atom>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_theory_atom))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_theory_atom>())).term as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom),
-            "::",
-            stringify!(term)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_theory_atom>())).elements as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom),
-            "::",
-            stringify!(elements)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_theory_atom>())).size as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_theory_atom>())).guard as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom),
-            "::",
-            stringify!(guard)
-        )
-    );
-}
-pub type clingo_ast_theory_atom_t = clingo_ast_theory_atom;
-pub const clingo_ast_head_literal_type_clingo_ast_head_literal_type_literal:
-    clingo_ast_head_literal_type = 0;
-pub const clingo_ast_head_literal_type_clingo_ast_head_literal_type_disjunction:
-    clingo_ast_head_literal_type = 1;
-pub const clingo_ast_head_literal_type_clingo_ast_head_literal_type_aggregate:
-    clingo_ast_head_literal_type = 2;
-pub const clingo_ast_head_literal_type_clingo_ast_head_literal_type_head_aggregate:
-    clingo_ast_head_literal_type = 3;
-pub const clingo_ast_head_literal_type_clingo_ast_head_literal_type_theory_atom:
-    clingo_ast_head_literal_type = 4;
-pub type clingo_ast_head_literal_type = ::std::os::raw::c_uint;
-pub type clingo_ast_head_literal_type_t = ::std::os::raw::c_int;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_head_literal {
-    pub location: clingo_location_t,
-    pub type_: clingo_ast_head_literal_type_t,
-    pub __bindgen_anon_1: clingo_ast_head_literal__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union clingo_ast_head_literal__bindgen_ty_1 {
-    pub literal: *const clingo_ast_literal_t,
-    pub disjunction: *const clingo_ast_disjunction_t,
-    pub aggregate: *const clingo_ast_aggregate_t,
-    pub head_aggregate: *const clingo_ast_head_aggregate_t,
-    pub theory_atom: *const clingo_ast_theory_atom_t,
-    _bindgen_union_align: u64,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_head_literal__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_head_literal__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(clingo_ast_head_literal__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_head_literal__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_head_literal__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_literal__bindgen_ty_1>())).literal as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_literal__bindgen_ty_1),
-            "::",
-            stringify!(literal)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_literal__bindgen_ty_1>())).disjunction
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_literal__bindgen_ty_1),
-            "::",
-            stringify!(disjunction)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_literal__bindgen_ty_1>())).aggregate as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_literal__bindgen_ty_1),
-            "::",
-            stringify!(aggregate)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_literal__bindgen_ty_1>())).head_aggregate
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_literal__bindgen_ty_1),
-            "::",
-            stringify!(head_aggregate)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_literal__bindgen_ty_1>())).theory_atom
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_literal__bindgen_ty_1),
-            "::",
-            stringify!(theory_atom)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_head_literal() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_head_literal>(),
-        64usize,
-        concat!("Size of: ", stringify!(clingo_ast_head_literal))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_head_literal>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_head_literal))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_head_literal>())).location as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_literal),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_head_literal>())).type_ as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_head_literal),
-            "::",
-            stringify!(type_)
-        )
-    );
-}
-pub type clingo_ast_head_literal_t = clingo_ast_head_literal;
-pub const clingo_ast_body_literal_type_clingo_ast_body_literal_type_literal:
-    clingo_ast_body_literal_type = 0;
-pub const clingo_ast_body_literal_type_clingo_ast_body_literal_type_conditional:
-    clingo_ast_body_literal_type = 1;
-pub const clingo_ast_body_literal_type_clingo_ast_body_literal_type_aggregate:
-    clingo_ast_body_literal_type = 2;
-pub const clingo_ast_body_literal_type_clingo_ast_body_literal_type_body_aggregate:
-    clingo_ast_body_literal_type = 3;
-pub const clingo_ast_body_literal_type_clingo_ast_body_literal_type_theory_atom:
-    clingo_ast_body_literal_type = 4;
-pub const clingo_ast_body_literal_type_clingo_ast_body_literal_type_disjoint:
-    clingo_ast_body_literal_type = 5;
-pub type clingo_ast_body_literal_type = ::std::os::raw::c_uint;
-pub type clingo_ast_body_literal_type_t = ::std::os::raw::c_int;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_body_literal {
-    pub location: clingo_location_t,
-    pub sign: clingo_ast_sign_t,
-    pub type_: clingo_ast_body_literal_type_t,
-    pub __bindgen_anon_1: clingo_ast_body_literal__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union clingo_ast_body_literal__bindgen_ty_1 {
-    pub literal: *const clingo_ast_literal_t,
-    pub conditional: *const clingo_ast_conditional_literal_t,
-    pub aggregate: *const clingo_ast_aggregate_t,
-    pub body_aggregate: *const clingo_ast_body_aggregate_t,
-    pub theory_atom: *const clingo_ast_theory_atom_t,
-    pub disjoint: *const clingo_ast_disjoint_t,
-    _bindgen_union_align: u64,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_body_literal__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_body_literal__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(clingo_ast_body_literal__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_body_literal__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_body_literal__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_literal__bindgen_ty_1>())).literal as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_literal__bindgen_ty_1),
-            "::",
-            stringify!(literal)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_literal__bindgen_ty_1>())).conditional
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_literal__bindgen_ty_1),
-            "::",
-            stringify!(conditional)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_literal__bindgen_ty_1>())).aggregate as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_literal__bindgen_ty_1),
-            "::",
-            stringify!(aggregate)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_literal__bindgen_ty_1>())).body_aggregate
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_literal__bindgen_ty_1),
-            "::",
-            stringify!(body_aggregate)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_literal__bindgen_ty_1>())).theory_atom
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_literal__bindgen_ty_1),
-            "::",
-            stringify!(theory_atom)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_literal__bindgen_ty_1>())).disjoint as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_literal__bindgen_ty_1),
-            "::",
-            stringify!(disjoint)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_body_literal() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_body_literal>(),
-        64usize,
-        concat!("Size of: ", stringify!(clingo_ast_body_literal))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_body_literal>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_body_literal))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_body_literal>())).location as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_literal),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_body_literal>())).sign as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_literal),
-            "::",
-            stringify!(sign)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_body_literal>())).type_ as *const _ as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_body_literal),
-            "::",
-            stringify!(type_)
-        )
-    );
-}
-pub type clingo_ast_body_literal_t = clingo_ast_body_literal;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_theory_operator_definition {
-    pub location: clingo_location_t,
-    pub name: *const ::std::os::raw::c_char,
-    pub priority: ::std::os::raw::c_uint,
-    pub type_: clingo_ast_theory_operator_type_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_operator_definition() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_operator_definition>(),
-        64usize,
-        concat!(
-            "Size of: ",
-            stringify!(clingo_ast_theory_operator_definition)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_operator_definition>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_theory_operator_definition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_operator_definition>())).location as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_operator_definition),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_operator_definition>())).name as *const _
-                as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_operator_definition),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_operator_definition>())).priority as *const _
-                as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_operator_definition),
-            "::",
-            stringify!(priority)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_operator_definition>())).type_ as *const _
-                as usize
-        },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_operator_definition),
-            "::",
-            stringify!(type_)
-        )
-    );
-}
-pub type clingo_ast_theory_operator_definition_t = clingo_ast_theory_operator_definition;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_theory_term_definition {
-    pub location: clingo_location_t,
-    pub name: *const ::std::os::raw::c_char,
-    pub operators: *const clingo_ast_theory_operator_definition_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_term_definition() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_term_definition>(),
-        72usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_term_definition))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_term_definition>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_theory_term_definition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term_definition>())).location as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term_definition),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term_definition>())).name as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term_definition),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term_definition>())).operators as *const _
-                as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term_definition),
-            "::",
-            stringify!(operators)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_term_definition>())).size as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_term_definition),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_theory_term_definition_t = clingo_ast_theory_term_definition;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_theory_guard_definition {
-    pub term: *const ::std::os::raw::c_char,
-    pub operators: *const *const ::std::os::raw::c_char,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_guard_definition() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_guard_definition>(),
-        24usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_guard_definition))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_guard_definition>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_theory_guard_definition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_guard_definition>())).term as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_guard_definition),
-            "::",
-            stringify!(term)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_guard_definition>())).operators as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_guard_definition),
-            "::",
-            stringify!(operators)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_guard_definition>())).size as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_guard_definition),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_theory_guard_definition_t = clingo_ast_theory_guard_definition;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_theory_atom_definition {
-    pub location: clingo_location_t,
-    pub type_: clingo_ast_theory_atom_definition_type_t,
-    pub name: *const ::std::os::raw::c_char,
-    pub arity: ::std::os::raw::c_uint,
-    pub elements: *const ::std::os::raw::c_char,
-    pub guard: *const clingo_ast_theory_guard_definition_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_atom_definition() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_atom_definition>(),
-        88usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_atom_definition))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_atom_definition>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_theory_atom_definition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_definition>())).location as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_definition),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_definition>())).type_ as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_definition),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_definition>())).name as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_definition),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_definition>())).arity as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_definition),
-            "::",
-            stringify!(arity)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_definition>())).elements as *const _
-                as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_definition),
-            "::",
-            stringify!(elements)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_atom_definition>())).guard as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_atom_definition),
-            "::",
-            stringify!(guard)
-        )
-    );
-}
-pub type clingo_ast_theory_atom_definition_t = clingo_ast_theory_atom_definition;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_theory_definition {
-    pub name: *const ::std::os::raw::c_char,
-    pub terms: *const clingo_ast_theory_term_definition_t,
-    pub terms_size: usize,
-    pub atoms: *const clingo_ast_theory_atom_definition_t,
-    pub atoms_size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_theory_definition() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_theory_definition>(),
-        40usize,
-        concat!("Size of: ", stringify!(clingo_ast_theory_definition))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_theory_definition>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_theory_definition))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_definition>())).name as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_definition),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_definition>())).terms as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_definition),
-            "::",
-            stringify!(terms)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_definition>())).terms_size as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_definition),
-            "::",
-            stringify!(terms_size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_definition>())).atoms as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_definition),
-            "::",
-            stringify!(atoms)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_theory_definition>())).atoms_size as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_theory_definition),
-            "::",
-            stringify!(atoms_size)
-        )
-    );
-}
-pub type clingo_ast_theory_definition_t = clingo_ast_theory_definition;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_rule {
-    pub head: clingo_ast_head_literal_t,
-    pub body: *const clingo_ast_body_literal_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_rule() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_rule>(),
-        80usize,
-        concat!("Size of: ", stringify!(clingo_ast_rule))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_rule>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_rule))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_rule>())).head as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_rule),
-            "::",
-            stringify!(head)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_rule>())).body as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_rule),
-            "::",
-            stringify!(body)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_rule>())).size as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_rule),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_rule_t = clingo_ast_rule;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_definition {
-    pub name: *const ::std::os::raw::c_char,
-    pub value: clingo_ast_term_t,
-    pub is_default: bool,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_definition() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_definition>(),
-        80usize,
-        concat!("Size of: ", stringify!(clingo_ast_definition))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_definition>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_definition))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_definition>())).name as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_definition),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_definition>())).value as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_definition),
-            "::",
-            stringify!(value)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_definition>())).is_default as *const _ as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_definition),
-            "::",
-            stringify!(is_default)
-        )
-    );
-}
-pub type clingo_ast_definition_t = clingo_ast_definition;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_show_signature {
-    pub signature: clingo_signature_t,
-    pub csp: bool,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_show_signature() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_show_signature>(),
-        16usize,
-        concat!("Size of: ", stringify!(clingo_ast_show_signature))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_show_signature>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_show_signature))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_show_signature>())).signature as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_show_signature),
-            "::",
-            stringify!(signature)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_show_signature>())).csp as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_show_signature),
-            "::",
-            stringify!(csp)
-        )
-    );
-}
-pub type clingo_ast_show_signature_t = clingo_ast_show_signature;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_show_term {
-    pub term: clingo_ast_term_t,
-    pub body: *const clingo_ast_body_literal_t,
-    pub size: usize,
-    pub csp: bool,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_show_term() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_show_term>(),
-        88usize,
-        concat!("Size of: ", stringify!(clingo_ast_show_term))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_show_term>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_show_term))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_show_term>())).term as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_show_term),
-            "::",
-            stringify!(term)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_show_term>())).body as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_show_term),
-            "::",
-            stringify!(body)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_show_term>())).size as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_show_term),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_show_term>())).csp as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_show_term),
-            "::",
-            stringify!(csp)
-        )
-    );
-}
-pub type clingo_ast_show_term_t = clingo_ast_show_term;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_defined {
-    pub signature: clingo_signature_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_defined() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_defined>(),
-        8usize,
-        concat!("Size of: ", stringify!(clingo_ast_defined))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_defined>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_defined))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_defined>())).signature as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_defined),
-            "::",
-            stringify!(signature)
-        )
-    );
-}
-pub type clingo_ast_defined_t = clingo_ast_defined;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_minimize {
-    pub weight: clingo_ast_term_t,
-    pub priority: clingo_ast_term_t,
-    pub tuple: *const clingo_ast_term_t,
-    pub tuple_size: usize,
-    pub body: *const clingo_ast_body_literal_t,
-    pub body_size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_minimize() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_minimize>(),
-        160usize,
-        concat!("Size of: ", stringify!(clingo_ast_minimize))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_minimize>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_minimize))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_minimize>())).weight as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_minimize),
-            "::",
-            stringify!(weight)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_minimize>())).priority as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_minimize),
-            "::",
-            stringify!(priority)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_minimize>())).tuple as *const _ as usize },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_minimize),
-            "::",
-            stringify!(tuple)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_minimize>())).tuple_size as *const _ as usize },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_minimize),
-            "::",
-            stringify!(tuple_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_minimize>())).body as *const _ as usize },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_minimize),
-            "::",
-            stringify!(body)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_minimize>())).body_size as *const _ as usize },
-        152usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_minimize),
-            "::",
-            stringify!(body_size)
-        )
-    );
-}
-pub type clingo_ast_minimize_t = clingo_ast_minimize;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_script {
-    pub type_: clingo_ast_script_type_t,
-    pub code: *const ::std::os::raw::c_char,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_script() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_script>(),
-        16usize,
-        concat!("Size of: ", stringify!(clingo_ast_script))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_script>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_script))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_script>())).type_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_script),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_script>())).code as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_script),
-            "::",
-            stringify!(code)
-        )
-    );
-}
-pub type clingo_ast_script_t = clingo_ast_script;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct clingo_ast_program {
-    pub name: *const ::std::os::raw::c_char,
-    pub parameters: *const clingo_ast_id_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_program() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_program>(),
-        24usize,
-        concat!("Size of: ", stringify!(clingo_ast_program))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_program>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_program))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_program>())).name as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_program),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_program>())).parameters as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_program),
-            "::",
-            stringify!(parameters)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_program>())).size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_program),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_program_t = clingo_ast_program;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_external {
-    pub atom: clingo_ast_term_t,
-    pub body: *const clingo_ast_body_literal_t,
-    pub size: usize,
-    pub type_: clingo_ast_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_external() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_external>(),
-        144usize,
-        concat!("Size of: ", stringify!(clingo_ast_external))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_external>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_external))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_external>())).atom as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_external),
-            "::",
-            stringify!(atom)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_external>())).body as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_external),
-            "::",
-            stringify!(body)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_external>())).size as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_external),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_external>())).type_ as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_external),
-            "::",
-            stringify!(type_)
-        )
-    );
-}
-pub type clingo_ast_external_t = clingo_ast_external;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_edge {
-    pub u: clingo_ast_term_t,
-    pub v: clingo_ast_term_t,
-    pub body: *const clingo_ast_body_literal_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_edge() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_edge>(),
-        144usize,
-        concat!("Size of: ", stringify!(clingo_ast_edge))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_edge>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_edge))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_edge>())).u as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_edge),
-            "::",
-            stringify!(u)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_edge>())).v as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_edge),
-            "::",
-            stringify!(v)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_edge>())).body as *const _ as usize },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_edge),
-            "::",
-            stringify!(body)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_edge>())).size as *const _ as usize },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_edge),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_edge_t = clingo_ast_edge;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_heuristic {
-    pub atom: clingo_ast_term_t,
-    pub body: *const clingo_ast_body_literal_t,
-    pub size: usize,
-    pub bias: clingo_ast_term_t,
-    pub priority: clingo_ast_term_t,
-    pub modifier: clingo_ast_term_t,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_heuristic() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_heuristic>(),
-        272usize,
-        concat!("Size of: ", stringify!(clingo_ast_heuristic))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_heuristic>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_heuristic))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_heuristic>())).atom as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_heuristic),
-            "::",
-            stringify!(atom)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_heuristic>())).body as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_heuristic),
-            "::",
-            stringify!(body)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_heuristic>())).size as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_heuristic),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_heuristic>())).bias as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_heuristic),
-            "::",
-            stringify!(bias)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_heuristic>())).priority as *const _ as usize },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_heuristic),
-            "::",
-            stringify!(priority)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_heuristic>())).modifier as *const _ as usize },
-        208usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_heuristic),
-            "::",
-            stringify!(modifier)
-        )
-    );
-}
-pub type clingo_ast_heuristic_t = clingo_ast_heuristic;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_project {
-    pub atom: clingo_ast_term_t,
-    pub body: *const clingo_ast_body_literal_t,
-    pub size: usize,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_project() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_project>(),
-        80usize,
-        concat!("Size of: ", stringify!(clingo_ast_project))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_project>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_project))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_project>())).atom as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_project),
-            "::",
-            stringify!(atom)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_project>())).body as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_project),
-            "::",
-            stringify!(body)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_project>())).size as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_project),
-            "::",
-            stringify!(size)
-        )
-    );
-}
-pub type clingo_ast_project_t = clingo_ast_project;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_rule: clingo_ast_statement_type = 0;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_const: clingo_ast_statement_type = 1;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_show_signature:
-    clingo_ast_statement_type = 2;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_show_term: clingo_ast_statement_type =
-    3;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_minimize: clingo_ast_statement_type =
-    4;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_script: clingo_ast_statement_type = 5;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_program: clingo_ast_statement_type =
-    6;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_external: clingo_ast_statement_type =
-    7;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_edge: clingo_ast_statement_type = 8;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_heuristic: clingo_ast_statement_type =
-    9;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_project_atom:
-    clingo_ast_statement_type = 10;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_project_atom_signature:
-    clingo_ast_statement_type = 11;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_theory_definition:
-    clingo_ast_statement_type = 12;
-pub const clingo_ast_statement_type_clingo_ast_statement_type_defined: clingo_ast_statement_type =
-    13;
-pub type clingo_ast_statement_type = ::std::os::raw::c_uint;
-pub type clingo_ast_statement_type_t = ::std::os::raw::c_int;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct clingo_ast_statement {
-    pub location: clingo_location_t,
-    pub type_: clingo_ast_statement_type_t,
-    pub __bindgen_anon_1: clingo_ast_statement__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union clingo_ast_statement__bindgen_ty_1 {
-    pub rule: *const clingo_ast_rule_t,
-    pub definition: *const clingo_ast_definition_t,
-    pub show_signature: *const clingo_ast_show_signature_t,
-    pub show_term: *const clingo_ast_show_term_t,
-    pub minimize: *const clingo_ast_minimize_t,
-    pub script: *const clingo_ast_script_t,
-    pub program: *const clingo_ast_program_t,
-    pub external: *const clingo_ast_external_t,
-    pub edge: *const clingo_ast_edge_t,
-    pub heuristic: *const clingo_ast_heuristic_t,
-    pub project_atom: *const clingo_ast_project_t,
-    pub project_signature: clingo_signature_t,
-    pub theory_definition: *const clingo_ast_theory_definition_t,
-    pub defined: *const clingo_ast_defined_t,
-    _bindgen_union_align: u64,
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_statement__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_statement__bindgen_ty_1>(),
-        8usize,
-        concat!("Size of: ", stringify!(clingo_ast_statement__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_statement__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(clingo_ast_statement__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).rule as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(rule)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).definition as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(definition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).show_signature
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(show_signature)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).show_term as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(show_term)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).minimize as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(minimize)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).script as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(script)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).program as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(program)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).external as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(external)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).edge as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(edge)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).heuristic as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(heuristic)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).project_atom as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(project_atom)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).project_signature
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(project_signature)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).theory_definition
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(theory_definition)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<clingo_ast_statement__bindgen_ty_1>())).defined as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement__bindgen_ty_1),
-            "::",
-            stringify!(defined)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_clingo_ast_statement() {
-    assert_eq!(
-        ::std::mem::size_of::<clingo_ast_statement>(),
-        64usize,
-        concat!("Size of: ", stringify!(clingo_ast_statement))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<clingo_ast_statement>(),
-        8usize,
-        concat!("Alignment of ", stringify!(clingo_ast_statement))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_statement>())).location as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement),
-            "::",
-            stringify!(location)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<clingo_ast_statement>())).type_ as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(clingo_ast_statement),
-            "::",
-            stringify!(type_)
-        )
-    );
-}
-pub type clingo_ast_statement_t = clingo_ast_statement;
-pub type clingo_ast_callback_t = ::std::option::Option<
-    unsafe extern "C" fn(
-        arg1: *const clingo_ast_statement_t,
-        arg2: *mut ::std::os::raw::c_void,
-    ) -> bool,
->;
-extern "C" {
-    #[doc = "! Parse the given program and return an abstract syntax tree for each statement via a callback."]
-    #[doc = "!"]
-    #[doc = "! @param[in] program the program in gringo syntax"]
-    #[doc = "! @param[in] callback the callback reporting statements"]
-    #[doc = "! @param[in] callback_data user data for the callback"]
-    #[doc = "! @param[in] logger callback to report messages during parsing"]
-    #[doc = "! @param[in] logger_data user data for the logger"]
-    #[doc = "! @param[in] message_limit the maximum number of times the logger is called"]
-    #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
-    #[doc = "! - ::clingo_error_runtime if parsing fails"]
-    #[doc = "! - ::clingo_error_bad_alloc"]
-    pub fn clingo_parse_program(
-        program: *const ::std::os::raw::c_char,
         callback: clingo_ast_callback_t,
         callback_data: *mut ::std::os::raw::c_void,
-        logger: clingo_logger_t,
-        logger_data: *mut ::std::os::raw::c_void,
-        message_limit: ::std::os::raw::c_uint,
-    ) -> bool;
-}
-extern "C" {
-    #[doc = "! Parse the programs in the given list of files and return an abstract syntax tree for each statement via a callback."]
-    #[doc = "!"]
-    #[doc = "! The function follows clingo's handling of files on the command line."]
-    #[doc = "! Filename \"-\" is treated as STDIN and if an empty list is given, then the parser will read from STDIN."]
-    #[doc = "!"]
-    #[doc = "! @param[in] files the beginning of the file name array"]
-    #[doc = "! @param[in] size the number of file names"]
-    #[doc = "! @param[in] callback the callback reporting statements"]
-    #[doc = "! @param[in] callback_data user data for the callback"]
-    #[doc = "! @param[in] logger callback to report messages during parsing"]
-    #[doc = "! @param[in] logger_data user data for the logger"]
-    #[doc = "! @param[in] message_limit the maximum number of times the logger is called"]
-    #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
-    #[doc = "! - ::clingo_error_runtime if parsing fails"]
-    #[doc = "! - ::clingo_error_bad_alloc"]
-    pub fn clingo_parse_files(
-        files: *const *const ::std::os::raw::c_char,
-        size: usize,
-        callback: clingo_ast_callback_t,
-        callback_data: *mut ::std::os::raw::c_void,
-        logger: clingo_logger_t,
-        logger_data: *mut ::std::os::raw::c_void,
-        message_limit: ::std::os::raw::c_uint,
-    ) -> bool;
-}
-extern "C" {
-    #[doc = "! Adds a statement to the program."]
-    #[doc = "!"]
-    #[doc = "! @attention @ref clingo_program_builder_begin() must be called before adding statements and @ref clingo_program_builder_end() must be called after all statements have been added."]
-    #[doc = "! @param builder the target program builder"]
-    #[doc = "! @param statement the statement to add"]
-    #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
-    #[doc = "! - ::clingo_error_runtime for statements of invalid form"]
-    #[doc = "! - ::clingo_error_bad_alloc"]
-    pub fn clingo_program_builder_add(
-        builder: *mut clingo_program_builder_t,
-        statement: *const clingo_ast_statement_t,
     ) -> bool;
 }
 #[doc = "! An instance of this struct has to be registered with a solver to observe ground directives as they are passed to the solver."]
