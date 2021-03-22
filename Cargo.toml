@@ -13,7 +13,7 @@ documentation = "https://docs.rs/clingo-sys"
 readme = "README.md"
 
 [features]
-dynamic_linking = []
+static_linking = []
 
 [lib]
 name = "clingo_sys"

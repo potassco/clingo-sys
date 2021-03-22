@@ -34,17 +34,7 @@ fn main() {
     //     .write_to_file("bindings.rs")
     //     .expect("Couldn't write bindings!");
 
-    if cfg!(feature = "dynamic_linking") {
-        let path = env::var("CLINGO_LIBRARY_PATH").expect("$CLINGO_LIBRARY_PATH should be defined");
-        println!("cargo:rustc-link-search=native={}", path);
-        println!("cargo:rustc-link-lib=dylib=clingo");
-        if cfg!(feature = "dl_theory") {
-            let path = env::var("CLINGO_DL_LIBRARY_PATH")
-                .expect("$CLINGO_DL_LIBRARY_PATH should be defined");
-            println!("cargo:rustc-link-search=native={}", path);
-            println!("cargo:rustc-link-lib=dylib=clingo-dl");
-        }
-    } else {
+    if cfg!(feature = "static_linking")  {
         // build clingo for static linking
 
         use cmake::Config;
@@ -75,6 +65,16 @@ fn main() {
             println!("cargo:rustc-link-lib=dylib=stdc++");
         } else if cfg!(target_os = "macos") {
             println!("cargo:rustc-link-lib=dylib=c++");
+        }
+    } else {
+        let path = env::var("CLINGO_LIBRARY_PATH").expect("$CLINGO_LIBRARY_PATH should be defined");
+        println!("cargo:rustc-link-search=native={}", path);
+        println!("cargo:rustc-link-lib=dylib=clingo");
+        if cfg!(feature = "dl_theory") {
+            let path = env::var("CLINGO_DL_LIBRARY_PATH")
+                .expect("$CLINGO_DL_LIBRARY_PATH should be defined");
+            println!("cargo:rustc-link-search=native={}", path);
+            println!("cargo:rustc-link-lib=dylib=clingo-dl");
         }
     }
     //     println!("cargo:rustc-link-lib=python3.6m");
