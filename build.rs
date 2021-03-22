@@ -1,4 +1,5 @@
 use std::env;
+
 fn main() {
     // update clingo submodule
     // git submodule update --init --recursive
@@ -34,7 +35,7 @@ fn main() {
     //     .write_to_file("bindings.rs")
     //     .expect("Couldn't write bindings!");
 
-    if cfg!(feature = "static_linking")  {
+    if cfg!(feature = "static_linking") {
         // build clingo for static linking
 
         use cmake::Config;
@@ -69,7 +70,13 @@ fn main() {
     } else {
         let path = env::var("CLINGO_LIBRARY_PATH").expect("$CLINGO_LIBRARY_PATH should be defined");
         println!("cargo:rustc-link-search=native={}", path);
-        println!("cargo:rustc-link-lib=dylib=clingo");
+
+        if cfg!(target_os = "windows") {
+            println!("cargo:rustc-link-lib=dylib=import_clingo");
+        } else {
+            println!("cargo:rustc-link-lib=dylib=clingo");
+        }
+
         if cfg!(feature = "dl_theory") {
             let path = env::var("CLINGO_DL_LIBRARY_PATH")
                 .expect("$CLINGO_DL_LIBRARY_PATH should be defined");
