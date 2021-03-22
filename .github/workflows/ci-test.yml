@@ -6,13 +6,15 @@ jobs:
   build-linux:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v1
-      - name: update submodules
-        run: git submodule update --init --recursive
-      - name: Install bison
-        run: sudo apt-get install bison
-      - name: Install re2c
-        run: sudo apt-get install re2c
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+      - name: Conda install clingo
+        shell: bash -l {0}
+        run: |
+          conda install -c potassco/label/dev clingo
       - name: Build
         run: cargo build --verbose
       - name: Run tests
@@ -20,33 +22,80 @@ jobs:
   build-macos:
     runs-on: "macos-latest"
     steps:
-      - uses: actions/checkout@v1
-      - name: update submodules
-        run: git submodule update --init --recursive
-      - name: Install build dependencies
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+      - name: Conda install clingo
+        shell: bash -l {0}
         run: |
-          brew update
-          brew install bison@2.7
-          brew install re2c
+          conda install -c potassco/label/dev clingo
       - name: Build
         run: |
-          export PATH="/usr/local/opt/bison@2.7/bin:$PATH"
           cargo build --verbose
       - name: Run tests
         run: |
-          export PATH="/usr/local/opt/bison@2.7/bin:$PATH"
           cargo test --verbose
   build-windows:
     runs-on: "windows-latest"
     steps:
-      - uses: actions/checkout@v1
-      - name: update submodules
-        run: git submodule update --init --recursive
-      - name: Install bison
-        run: choco install winflexbison
-      - name: Install re2c
-        run: choco install re2c
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+      - name: Conda install clingo
+        run: |
+          conda install -c potassco/label/dev clingo
       - name: Build
         run: cargo build -vv
       - name: Run tests
         run: cargo test --verbose
+  # build-linux-static:
+  #   runs-on: "ubuntu-latest"
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: update submodules
+  #       run: git submodule update --init --recursive
+  #     - name: Install bison
+  #       run: sudo apt-get install bison
+  #     - name: Install re2c
+  #       run: sudo apt-get install re2c
+  #     - name: Build
+  #       run: cargo build --features static_linking --verbose
+  #     - name: Run tests
+  #       run: cargo test --features static_linking --verbose
+  # build-macos-static:
+  #   runs-on: "macos-latest"
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: update submodules
+  #       run: git submodule update --init --recursive
+  #     - name: Install build dependencies
+  #       run: |
+  #         brew update
+  #         brew install bison@2.7
+  #         brew install re2c
+  #     - name: Build
+  #       run: |
+  #         export PATH="/usr/local/opt/bison@2.7/bin:$PATH"
+  #         cargo build --features static_linking --verbose
+  #     - name: Run tests
+  #       run: |
+  #         export PATH="/usr/local/opt/bison@2.7/bin:$PATH"
+  #         cargo test --features static_linking --verbose
+  # build-windows-static:
+  #   runs-on: "windows-latest"
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: update submodules
+  #       run: git submodule update --init --recursive
+  #     - name: Install bison
+  #       run: choco install winflexbison
+  #     - name: Install re2c
+  #       run: choco install re2c
+  #     - name: Build
+  #       run: cargo build --features static_linking -vv
+  #     - name: Run tests
+  #       run: cargo test --features static_linking --verbose
