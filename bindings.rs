@@ -1619,6 +1619,45 @@ extern "C" {
     ) -> bool;
 }
 extern "C" {
+    #[doc = "! Remove the watch for the solver literal in the given phase."]
+    #[doc = "!"]
+    #[doc = "! @param[in] init the target"]
+    #[doc = "! @param[in] solver_literal the solver literal"]
+    #[doc = "! @return whether the call was successful"]
+    pub fn clingo_propagate_init_remove_watch(
+        init: *mut clingo_propagate_init_t,
+        solver_literal: clingo_literal_t,
+    ) -> bool;
+}
+extern "C" {
+    #[doc = "! Remove the watch for the solver literal in the given phase from the given solver thread."]
+    #[doc = "!"]
+    #[doc = "! @param[in] init the target"]
+    #[doc = "! @param[in] solver_literal the solver literal"]
+    #[doc = "! @param[in] thread_id the id of the solver thread"]
+    #[doc = "! @return whether the call was successful"]
+    pub fn clingo_propagate_init_remove_watch_from_thread(
+        init: *mut clingo_propagate_init_t,
+        solver_literal: clingo_literal_t,
+        thread_id: u32,
+    ) -> bool;
+}
+extern "C" {
+    #[doc = "! Freeze the given solver literal."]
+    #[doc = "!"]
+    #[doc = "! Any solver literal that is not frozen is subject to simplification and might be removed in a preprocessing step after propagator initialization."]
+    #[doc = "! A propagator should freeze all literals over which it might add clauses during propagation."]
+    #[doc = "! Note that any watched literal is automatically frozen and that it does not matter which phase of the literal is frozen."]
+    #[doc = "!"]
+    #[doc = "! @param[in] init the target"]
+    #[doc = "! @param[in] solver_literal the solver literal"]
+    #[doc = "! @return whether the call was successful"]
+    pub fn clingo_propagate_init_freeze_literal(
+        init: *mut clingo_propagate_init_t,
+        solver_literal: clingo_literal_t,
+    ) -> bool;
+}
+extern "C" {
     #[doc = "! Get an object to inspect the symbolic atoms."]
     #[doc = "!"]
     #[doc = "! @param[in] init the target"]
