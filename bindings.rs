@@ -3751,7 +3751,7 @@ extern "C" {
     #[doc = "! @param[out] type the resulting type"]
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
-    pub fn clingo_ast_get_type(ast: *mut clingo_ast_t, type_: *mut clingo_ast_type_t) -> bool;
+    pub fn clingo_ast_get_type(ast: *const clingo_ast_t, type_: *mut clingo_ast_type_t) -> bool;
 }
 extern "C" {
     #[doc = "! Check if an AST has the given attribute."]
