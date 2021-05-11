@@ -3312,14 +3312,6 @@ pub const clingo_ast_theory_atom_definition_type_e_clingo_ast_theory_atom_defini
 pub type clingo_ast_theory_atom_definition_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_theory_atom_definition_type."]
 pub type clingo_ast_theory_atom_definition_type_t = ::std::os::raw::c_int;
-#[doc = "!< For Lua scripts."]
-pub const clingo_ast_script_type_e_clingo_ast_script_type_lua: clingo_ast_script_type_e = 0;
-#[doc = "!< For Python scripts."]
-pub const clingo_ast_script_type_e_clingo_ast_script_type_python: clingo_ast_script_type_e = 1;
-#[doc = "! Enumeration of script types."]
-pub type clingo_ast_script_type_e = ::std::os::raw::c_uint;
-#[doc = "! Corresponding type to ::clingo_ast_script_type."]
-pub type clingo_ast_script_type_t = ::std::os::raw::c_int;
 pub const clingo_ast_type_e_clingo_ast_type_id: clingo_ast_type_e = 0;
 pub const clingo_ast_type_e_clingo_ast_type_variable: clingo_ast_type_e = 1;
 pub const clingo_ast_type_e_clingo_ast_type_symbolic_term: clingo_ast_type_e = 2;
@@ -3440,15 +3432,14 @@ pub const clingo_ast_attribute_e_clingo_ast_attribute_positive: clingo_ast_attri
 pub const clingo_ast_attribute_e_clingo_ast_attribute_priority: clingo_ast_attribute_e = 34;
 pub const clingo_ast_attribute_e_clingo_ast_attribute_right: clingo_ast_attribute_e = 35;
 pub const clingo_ast_attribute_e_clingo_ast_attribute_right_guard: clingo_ast_attribute_e = 36;
-pub const clingo_ast_attribute_e_clingo_ast_attribute_script_type: clingo_ast_attribute_e = 37;
-pub const clingo_ast_attribute_e_clingo_ast_attribute_sequence_type: clingo_ast_attribute_e = 38;
-pub const clingo_ast_attribute_e_clingo_ast_attribute_sign: clingo_ast_attribute_e = 39;
-pub const clingo_ast_attribute_e_clingo_ast_attribute_symbol: clingo_ast_attribute_e = 40;
-pub const clingo_ast_attribute_e_clingo_ast_attribute_term: clingo_ast_attribute_e = 41;
-pub const clingo_ast_attribute_e_clingo_ast_attribute_terms: clingo_ast_attribute_e = 42;
-pub const clingo_ast_attribute_e_clingo_ast_attribute_value: clingo_ast_attribute_e = 43;
-pub const clingo_ast_attribute_e_clingo_ast_attribute_variable: clingo_ast_attribute_e = 44;
-pub const clingo_ast_attribute_e_clingo_ast_attribute_weight: clingo_ast_attribute_e = 45;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_sequence_type: clingo_ast_attribute_e = 37;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_sign: clingo_ast_attribute_e = 38;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_symbol: clingo_ast_attribute_e = 39;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_term: clingo_ast_attribute_e = 40;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_terms: clingo_ast_attribute_e = 41;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_value: clingo_ast_attribute_e = 42;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_variable: clingo_ast_attribute_e = 43;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_weight: clingo_ast_attribute_e = 44;
 #[doc = "! Enumeration of attributes used by the AST."]
 pub type clingo_ast_attribute_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_attribute."]
@@ -5631,4 +5622,164 @@ extern "C" {
         size: usize,
         data: *mut ::std::os::raw::c_void,
     ) -> ::std::os::raw::c_int;
+}
+#[doc = "! Custom scripting language to run functions during grounding."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct clingo_script {
+    #[doc = "! Evaluate the given source code."]
+    #[doc = "! @param[in] location the location in the logic program of the source code"]
+    #[doc = "! @param[in] code the code to evaluate"]
+    #[doc = "! @param[in] data user data as given when registering the script"]
+    #[doc = "! @return whether the function call was successful"]
+    pub execute: ::std::option::Option<
+        unsafe extern "C" fn(
+            location: *const clingo_location_t,
+            code: *const ::std::os::raw::c_char,
+            data: *mut ::std::os::raw::c_void,
+        ) -> bool,
+    >,
+    #[doc = "! Call the function with the given name and arguments."]
+    #[doc = "! @param[in] location the location in the logic program of the function call"]
+    #[doc = "! @param[in] name the name of the function"]
+    #[doc = "! @param[in] arguments the arguments to the function"]
+    #[doc = "! @param[in] arguments_size the number of arguments"]
+    #[doc = "! @param[in] symbol_callback callback to return a pool of symbols"]
+    #[doc = "! @param[in] symbol_callback_data user data for the symbol callback"]
+    #[doc = "! @param[in] data user data as given when registering the script"]
+    #[doc = "! @return whether the function call was successful"]
+    pub call: ::std::option::Option<
+        unsafe extern "C" fn(
+            location: *const clingo_location_t,
+            name: *const ::std::os::raw::c_char,
+            arguments: *const clingo_symbol_t,
+            arguments_size: usize,
+            symbol_callback: clingo_symbol_callback_t,
+            symbol_callback_data: *mut ::std::os::raw::c_void,
+            data: *mut ::std::os::raw::c_void,
+        ) -> bool,
+    >,
+    #[doc = "! Check if the given function is callable."]
+    #[doc = "! @param[in] name the name of the function"]
+    #[doc = "! @param[out] result whether the function is callable"]
+    #[doc = "! @param[in] data user data as given when registering the script"]
+    #[doc = "! @return whether the function call was successful"]
+    pub callable: ::std::option::Option<
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            result: *mut bool,
+            data: *mut ::std::os::raw::c_void,
+        ) -> bool,
+    >,
+    #[doc = "! Run the main function."]
+    #[doc = "! @param[in] control the control object to pass to the main function"]
+    #[doc = "! @param[in] data user data as given when registering the script"]
+    #[doc = "! @return whether the function call was successful"]
+    pub main: ::std::option::Option<
+        unsafe extern "C" fn(
+            control: *mut clingo_control_t,
+            data: *mut ::std::os::raw::c_void,
+        ) -> bool,
+    >,
+    #[doc = "! This function is called once when the script is deleted."]
+    #[doc = "! @param[in] data user data as given when registering the script"]
+    pub free: ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void)>,
+    pub version: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_clingo_script() {
+    assert_eq!(
+        ::std::mem::size_of::<clingo_script>(),
+        48usize,
+        concat!("Size of: ", stringify!(clingo_script))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<clingo_script>(),
+        8usize,
+        concat!("Alignment of ", stringify!(clingo_script))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<clingo_script>())).execute as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(clingo_script),
+            "::",
+            stringify!(execute)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<clingo_script>())).call as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(clingo_script),
+            "::",
+            stringify!(call)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<clingo_script>())).callable as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(clingo_script),
+            "::",
+            stringify!(callable)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<clingo_script>())).main as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(clingo_script),
+            "::",
+            stringify!(main)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<clingo_script>())).free as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(clingo_script),
+            "::",
+            stringify!(free)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<clingo_script>())).version as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(clingo_script),
+            "::",
+            stringify!(version)
+        )
+    );
+}
+#[doc = "! Custom scripting language to run functions during grounding."]
+pub type clingo_script_t = clingo_script;
+extern "C" {
+    #[doc = "! Add a custom scripting language to clingo."]
+    #[doc = "!"]
+    #[doc = "! @param[in] name the name of the scripting language"]
+    #[doc = "! @param[in] script struct with functions implementing the language"]
+    #[doc = "! @param[in] data user data to pass to callbacks in the script"]
+    #[doc = "! @return whether the call was successful"]
+    pub fn clingo_register_script(
+        name: *const ::std::os::raw::c_char,
+        script: *const clingo_script_t,
+        data: *mut ::std::os::raw::c_void,
+    ) -> bool;
+}
+extern "C" {
+    #[doc = "! Get the version of the registered scripting language."]
+    #[doc = "!"]
+    #[doc = "! @param[in] name the name of the scripting language"]
+    #[doc = "! @return the version"]
+    pub fn clingo_script_version(
+        name: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
 }
