@@ -3687,7 +3687,7 @@ extern "C" {
     #[doc = "! @param[out] copy the resulting AST"]
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_bad_alloc"]
-    pub fn clingo_ast_copy(ast: *mut clingo_ast_t, copy: *mut *mut clingo_ast_t) -> bool;
+    pub fn clingo_ast_copy(ast: *const clingo_ast_t, copy: *mut *mut clingo_ast_t) -> bool;
 }
 extern "C" {
     #[doc = "! Create a shallow copy of an AST node."]
