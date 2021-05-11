@@ -35,7 +35,7 @@ fn main() {
     //     .write_to_file("bindings.rs")
     //     .expect("Couldn't write bindings!");
 
-    if cfg!(feature = "static_linking") {
+    if cfg!(feature = "static-linking") {
         // build clingo for static linking
 
         use cmake::Config;
