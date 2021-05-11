@@ -3696,7 +3696,7 @@ extern "C" {
     #[doc = "! @param[out] copy the resulting AST"]
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_bad_alloc"]
-    pub fn clingo_ast_deep_copy(ast: *mut clingo_ast_t, copy: *mut *mut clingo_ast_t) -> bool;
+    pub fn clingo_ast_deep_copy(ast: *const clingo_ast_t, copy: *mut *mut clingo_ast_t) -> bool;
 }
 extern "C" {
     #[doc = "! Less than compare two AST nodes."]
@@ -3704,7 +3704,7 @@ extern "C" {
     #[doc = "! @param[in] a the left-hand-side AST"]
     #[doc = "! @param[in] b the right-hand-side AST"]
     #[doc = "! @return the result of the comparison"]
-    pub fn clingo_ast_less_than(a: *mut clingo_ast_t, b: *mut clingo_ast_t) -> bool;
+    pub fn clingo_ast_less_than(a: *const clingo_ast_t, b: *const clingo_ast_t) -> bool;
 }
 extern "C" {
     #[doc = "! Equality compare two AST nodes."]
@@ -3712,14 +3712,14 @@ extern "C" {
     #[doc = "! @param[in] a the left-hand-side AST"]
     #[doc = "! @param[in] b the right-hand-side AST"]
     #[doc = "! @return the result of the comparison"]
-    pub fn clingo_ast_equal(a: *mut clingo_ast_t, b: *mut clingo_ast_t) -> bool;
+    pub fn clingo_ast_equal(a: *const clingo_ast_t, b: *const clingo_ast_t) -> bool;
 }
 extern "C" {
     #[doc = "! Compute a hash for an AST node."]
     #[doc = "!"]
     #[doc = "! @param[in] ast the target AST"]
     #[doc = "! @return the resulting hash code"]
-    pub fn clingo_ast_hash(ast: *mut clingo_ast_t) -> usize;
+    pub fn clingo_ast_hash(ast: *const clingo_ast_t) -> usize;
 }
 extern "C" {
     #[doc = "! Get the size of the string representation of an AST node."]
@@ -3728,7 +3728,7 @@ extern "C" {
     #[doc = "! @param[out] size the size of the string representation"]
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
-    pub fn clingo_ast_to_string_size(ast: *mut clingo_ast_t, size: *mut usize) -> bool;
+    pub fn clingo_ast_to_string_size(ast: *const clingo_ast_t, size: *mut usize) -> bool;
 }
 extern "C" {
     #[doc = "! Get the string representation of an AST node."]
@@ -3762,7 +3762,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_has_attribute(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         has_attribute: *mut bool,
     ) -> bool;
@@ -3776,7 +3776,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_type(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         type_: *mut clingo_ast_attribute_type_t,
     ) -> bool;
@@ -3790,7 +3790,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_get_number(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         value: *mut ::std::os::raw::c_int,
     ) -> bool;
@@ -3818,7 +3818,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_get_symbol(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         value: *mut clingo_symbol_t,
     ) -> bool;
@@ -3846,7 +3846,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_get_location(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         value: *mut clingo_location_t,
     ) -> bool;
@@ -3874,7 +3874,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_get_string(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         value: *mut *const ::std::os::raw::c_char,
     ) -> bool;
@@ -3902,7 +3902,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_get_ast(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         value: *mut *mut clingo_ast_t,
     ) -> bool;
@@ -3932,7 +3932,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_get_optional_ast(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         value: *mut *mut clingo_ast_t,
     ) -> bool;
@@ -3963,7 +3963,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_get_string_at(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         index: usize,
         value: *mut *const ::std::os::raw::c_char,
@@ -3995,7 +3995,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_delete_string_at(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         index: usize,
     ) -> bool;
@@ -4009,7 +4009,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_size_string_array(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         size: *mut usize,
     ) -> bool;
@@ -4025,7 +4025,7 @@ extern "C" {
     #[doc = "! - ::clingo_error_runtime"]
     #[doc = "! - ::clingo_error_bad_alloc"]
     pub fn clingo_ast_attribute_insert_string_at(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         index: usize,
         value: *const ::std::os::raw::c_char,
@@ -4041,7 +4041,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_get_ast_at(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         index: usize,
         value: *mut *mut clingo_ast_t,
@@ -4073,7 +4073,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_delete_ast_at(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         index: usize,
     ) -> bool;
@@ -4087,7 +4087,7 @@ extern "C" {
     #[doc = "! @return whether the call was successful; might set one of the following error codes:"]
     #[doc = "! - ::clingo_error_runtime"]
     pub fn clingo_ast_attribute_size_ast_array(
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
         attribute: clingo_ast_attribute_t,
         size: *mut usize,
     ) -> bool;
