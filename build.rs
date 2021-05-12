@@ -77,11 +77,15 @@ fn main() {
             println!("cargo:rustc-link-lib=dylib=clingo");
         }
 
-        if cfg!(feature = "dl_theory") {
+        if cfg!(feature = "dl-theory") {
             let path = env::var("CLINGO_DL_LIBRARY_PATH")
                 .expect("$CLINGO_DL_LIBRARY_PATH should be defined");
             println!("cargo:rustc-link-search=native={}", path);
-            println!("cargo:rustc-link-lib=dylib=clingo-dl");
+            if cfg!(target_os = "windows") {
+                println!("cargo:rustc-link-lib=dylib=import_clingo-dl");
+            } else {
+                println!("cargo:rustc-link-lib=dylib=clingo-dl");
+            }
         }
     }
     //     println!("cargo:rustc-link-lib=python3.6m");
