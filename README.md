@@ -3,31 +3,37 @@
 Rust raw FFI bindings to the C API of [clingo](https://github.com/potassco/clingo) library.
 Clingo version 5.5.0.
 
-## Requirements for a static library
+## Requirements library
 
 - a c++14 conforming compiler
   - *at least* [gcc](https://gcc.gnu.org/) version 4.9
   - [clang](http://clang.llvm.org/) version 3.1 (using either libstdc++
     provided by gcc 4.9 or libc++)
 
-## `dynamic_linking`
+Per default the crate uses the clingo library via dynamic linking.
+It is assumed that a clingo dynamic library is installed on the system.
+You have to set the environment variable `CLINGO_LIBRARY_PATH`. For example:
 
-The crate defines a [Cargo feature] that allows to use the clingo library via dynamic linking.
+```sh
+export CLINGO_LIBRARY_PATH=/scratch/miniconda3/envs/test/lib
+```
+
+## Using `static-linking`
+
+The crate defines a [Cargo feature] that allows to use the clingo library via static linking.
 
 [Cargo feature]: https://doc.rust-lang.org/cargo/reference/manifest.html#the-features-section
 
-With dynamic linking enabled the clingo library is not build for static linking but it is assumed that a
-clingo dynamic library is installed on the system.
-You have to define the environment variable `CLINGO_LIBRARY_PATH` for example:
+*Attention: currently `static-linking` does not work with `dl-theory`.*
 
 ```sh
-export CLINGO_LIBRARY_PATH=/scratch/miniconda3/envs/clingo/lib
+export CLINGO_LIBRARY_PATH=/scratch/miniconda3/envs/test/lib
 ```
 
-The recommended way to use the optional dynamic linking support is as
+The recommended way to use the optional static linking support is as
 follows.
 
 ```toml
 [dependencies]
-clingo-sys = { git = "https://github.com/potassco/clingo-sys", branch = "master", features = ["dynamic_linking"] }
+clingo = { version = "0.7.0-beta.1", features = ["static-linking"] }
 ```
