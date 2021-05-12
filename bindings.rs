@@ -4196,7 +4196,7 @@ extern "C" {
     #[doc = "! - ::clingo_error_bad_alloc"]
     pub fn clingo_program_builder_add(
         builder: *mut clingo_program_builder_t,
-        ast: *mut clingo_ast_t,
+        ast: *const clingo_ast_t,
     ) -> bool;
 }
 #[doc = "!< To only unpool conditions of conditional literals."]
