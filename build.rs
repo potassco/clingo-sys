@@ -1,6 +1,6 @@
 use std::env;
 fn main() {
-    if cfg!(feature = "dynamic_linking") {
+    if env::var("CARGO_FEATURE_DYNAMIC_LINKING").is_some() {
         let path = env::var("CLINGO_LIBRARY_PATH").expect("$CLINGO_LIBRARY_PATH should be defined");
         println!("cargo:rustc-link-search=native={}", path);
         println!("cargo:rustc-link-lib=dylib=clingo");
@@ -64,11 +64,9 @@ fn main() {
         println!("cargo:rustc-link-lib=static=potassco");
         println!("cargo:rustc-link-lib=static=clasp");
         println!("cargo:rustc-link-lib=static=gringo");
-
-        if cfg!(target_os = "linux") {
-            println!("cargo:rustc-link-lib=dylib=stdc++");
-        } else if cfg!(target_os = "macos") {
-            println!("cargo:rustc-link-lib=dylib=c++");
+        match env::var("CARGO_CFG_TARGET_OS").as_deref() {
+            Ok("linux") => println!("cargo:rustc-link-lib=dylib=stdc++"),
+            Ok("macos") => println!("cargo:rustc-link-lib=dylib=c++"),
         }
     }
     //     println!("cargo:rustc-link-lib=python3.6m");
