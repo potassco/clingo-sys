@@ -35,7 +35,9 @@ fn main() {
     //     .write_to_file("bindings.rs")
     //     .expect("Couldn't write bindings!");
 
-    if cfg!(feature = "static-linking") {
+    let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
+
+    if env::var("CARGO_FEATURE_STATIC_LINKING").is_ok() {
         // build clingo for static linking
 
         use cmake::Config;
@@ -62,16 +64,16 @@ fn main() {
         println!("cargo:rustc-link-lib=static=clasp");
         println!("cargo:rustc-link-lib=static=gringo");
 
-        if cfg!(target_os = "linux") {
+        if target_os.as_str() == "linux" {
             println!("cargo:rustc-link-lib=dylib=stdc++");
-        } else if cfg!(target_os = "macos") {
+        } else if target_os.as_str() == "macos" {
             println!("cargo:rustc-link-lib=dylib=c++");
         }
     } else {
         let path = env::var("CLINGO_LIBRARY_PATH").expect("$CLINGO_LIBRARY_PATH should be defined");
         println!("cargo:rustc-link-search=native={}", path);
 
-        if cfg!(target_os = "windows") {
+        if target_os.as_str() == "windows" {
             println!("cargo:rustc-link-lib=dylib=import_clingo");
         } else {
             println!("cargo:rustc-link-lib=dylib=clingo");
