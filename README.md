@@ -31,5 +31,5 @@ follows.
 
 ```toml
 [dependencies]
-clingo-sys = { version = "0.7.0", features = ["static-linking"] }
+clingo-sys = { version = "0.7.1", features = ["static-linking"] }
 ```

@@ -35,6 +35,11 @@ fn main() {
     //     .write_to_file("bindings.rs")
     //     .expect("Couldn't write bindings!");
 
+    if let Ok(_) = std::env::var("DOCS_RS") {
+        // skip linking on docs.rs
+        return;
+    }
+
     let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
 
     if env::var("CARGO_FEATURE_STATIC_LINKING").is_ok() {
