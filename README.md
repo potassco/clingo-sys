@@ -26,10 +26,6 @@ The crate defines a [Cargo feature] that allows to use the clingo library via st
 
 *Attention: currently `static-linking` does not work with `dl-theory`.*
 
-```sh
-export CLINGO_LIBRARY_PATH=/scratch/miniconda3/envs/test/lib
-```
-
 The recommended way to use the optional static linking support is as
 follows.
 
