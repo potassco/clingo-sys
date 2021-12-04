@@ -25,7 +25,7 @@ fn main() {
     //     // .no_copy("clingo_ast_function")
     //     // .no_copy("clingo_ast_pool")
     //     // .no_copy("clingo_ast_csp_product_term_t")
-    //     .blacklist_type("max_align_t") // https://github.com/rust-lang/rust-bindgen/issues/550
+    //     .blocklist_type("max_align_t") // https://github.com/rust-lang/rust-bindgen/issues/550
     //     .size_t_is_usize(true)
     //     .generate()
     //     .expect("Unable to generate bindings");
