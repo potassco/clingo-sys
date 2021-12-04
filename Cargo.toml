@@ -1,6 +1,6 @@
 [package]
 name = "clingo-sys"
-version = "0.7.1"
+version = "0.7.2-dev"
 authors = ["sthiele <sthiele78@gmail.com>"]
 edition = "2018"
 description = "Raw FFI bindings to the C API of the clingo library"
@@ -24,4 +24,4 @@ libc = "0.2"
 
 [build-dependencies]
 cmake = "0.1"
-# bindgen = "0.57"
+# bindgen = "0.59"
