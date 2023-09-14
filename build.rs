@@ -2,7 +2,7 @@ use std::env;
 
 fn main() {
     // update clingo submodule
-    // git submodule update --init --recursive
+    // git submodule update --recursive --remote
 
     // // create bindings
     // let bindings = bindgen::Builder::default()
