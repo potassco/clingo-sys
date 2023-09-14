@@ -68,9 +68,16 @@ jobs:
   build-linux-static:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: update submodules
         run: git submodule update --init --recursive
+      - name: checkout correct clingo version
+        run: |
+             cd clingo 
+             git checkout v5.6.2 
+             cd ..
+      - name: Apply patch
+        run: patch -u clingo/libclingo/CMakeLists.txt -i bugfix.patch
       - name: Install bison
         run: sudo apt-get install bison
       - name: Install re2c
@@ -82,9 +89,16 @@ jobs:
   build-macos-static:
     runs-on: "macos-latest"
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: update submodules
         run: git submodule update --init --recursive
+      - name: checkout correct clingo version
+        run: |
+             cd clingo 
+             git checkout v5.6.2 
+             cd ..
+      - name: Apply patch
+        run: patch -u clingo/libclingo/CMakeLists.txt -i bugfix.patch
       - name: Install build dependencies
         run: |
           brew update
@@ -101,9 +115,16 @@ jobs:
   build-windows-static:
     runs-on: "windows-latest"
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: update submodules
         run: git submodule update --init --recursive
+      - name: checkout correct clingo version
+        run: |
+             cd clingo 
+             git checkout v5.6.2 
+             cd ..
+      - name: Apply patch
+        run: patch -u clingo/libclingo/CMakeLists.txt -i bugfix.patch
       - name: Install bison
         run: choco install winflexbison
       - name: Install re2c
