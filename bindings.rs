@@ -100,9 +100,9 @@ pub const __bool_true_false_are_defined: u32 = 1;
 pub const true_: u32 = 1;
 pub const false_: u32 = 0;
 pub const CLINGO_VERSION_MAJOR: u32 = 5;
-pub const CLINGO_VERSION_MINOR: u32 = 6;
-pub const CLINGO_VERSION_REVISION: u32 = 2;
-pub const CLINGO_VERSION: &[u8; 6] = b"5.6.2\0";
+pub const CLINGO_VERSION_MINOR: u32 = 7;
+pub const CLINGO_VERSION_REVISION: u32 = 0;
+pub const CLINGO_VERSION: &[u8; 6] = b"5.7.0\0";
 pub type wchar_t = ::std::os::raw::c_int;
 pub type __u_char = ::std::os::raw::c_uchar;
 pub type __u_short = ::std::os::raw::c_ushort;
@@ -1048,6 +1048,16 @@ pub const clingo_propagator_check_mode_e_clingo_propagator_check_mode_both:
 pub type clingo_propagator_check_mode_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_propagator_check_mode_e."]
 pub type clingo_propagator_check_mode_t = ::std::os::raw::c_int;
+#[doc = "!< call @ref ::clingo_propagator::undo() for non-empty change lists"]
+pub const clingo_propagator_undo_mode_e_clingo_propagator_undo_mode_default:
+    clingo_propagator_undo_mode_e = 0;
+#[doc = "!< also call @ref ::clingo_propagator::check() when check has been called"]
+pub const clingo_propagator_undo_mode_e_clingo_propagator_undo_mode_always:
+    clingo_propagator_undo_mode_e = 1;
+#[doc = "! Undo modes for propagators."]
+pub type clingo_propagator_undo_mode_e = ::std::os::raw::c_uint;
+#[doc = "! Corresponding type to ::clingo_propagator_undo_mode_e."]
+pub type clingo_propagator_undo_mode_t = ::std::os::raw::c_int;
 #[doc = "!< the weight constraint implies the literal"]
 pub const clingo_weight_constraint_type_e_clingo_weight_constraint_type_implication_left:
     clingo_weight_constraint_type_e = -1;
@@ -1141,10 +1151,23 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = "! Get the current check mode of the propagator.\n!\n! @param[in] init the target\n! @return bitmask when to call the propagator\n! @see clingo_propagate_init_set_check_mode()"]
+    #[doc = "! Get the current check mode of the propagator.\n!\n! @param[in] init the target\n! @see clingo_propagate_init_set_check_mode()"]
     pub fn clingo_propagate_init_get_check_mode(
         init: *const clingo_propagate_init_t,
     ) -> clingo_propagator_check_mode_t;
+}
+extern "C" {
+    #[doc = "! Configure when to call the undo method of the propagator.\n!\n! @param[in] init the target\n! @param[in] mode when to call the propagator\n! @see @ref ::clingo_propagator::check()"]
+    pub fn clingo_propagate_init_set_undo_mode(
+        init: *mut clingo_propagate_init_t,
+        mode: clingo_propagator_undo_mode_t,
+    );
+}
+extern "C" {
+    #[doc = "! Get the current undo mode of the propagator.\n!\n! @param[in] init the target\n! @see clingo_propagate_init_set_undo_mode()"]
+    pub fn clingo_propagate_init_get_undo_mode(
+        init: *const clingo_propagate_init_t,
+    ) -> clingo_propagator_undo_mode_t;
 }
 extern "C" {
     #[doc = "! Get the top level assignment solver.\n!\n! @param[in] init the target\n! @return the assignment"]
@@ -1420,14 +1443,22 @@ fn bindgen_test_layout_clingo_propagator() {
 }
 #[doc = "! An instance of this struct has to be registered with a solver to implement a custom propagator.\n!\n! Not all callbacks have to be implemented and can be set to NULL if not needed.\n! @see Propagator"]
 pub type clingo_propagator_t = clingo_propagator;
+#[doc = "!< Comments."]
+pub const clingo_comment_type_e_clingo_comment_type_line: clingo_comment_type_e = 0;
+#[doc = "!< Block comments."]
+pub const clingo_comment_type_e_clingo_comment_type_block: clingo_comment_type_e = 1;
+#[doc = "! Enumeration of comment types."]
+pub type clingo_comment_type_e = ::std::os::raw::c_uint;
+#[doc = "! Corresponding type to ::clingo_theory_sequence_type_e."]
+pub type clingo_comment_type_t = ::std::os::raw::c_int;
 #[doc = "!< Theory tuples \"(t1,...,tn)\"."]
 pub const clingo_theory_sequence_type_e_clingo_theory_sequence_type_tuple:
     clingo_theory_sequence_type_e = 0;
-#[doc = "!< Theory lists \"[t1,...,tn]\"."]
-pub const clingo_theory_sequence_type_e_clingo_theory_sequence_type_list:
-    clingo_theory_sequence_type_e = 1;
 #[doc = "!< Theory sets \"{t1,...,tn}\"."]
 pub const clingo_theory_sequence_type_e_clingo_theory_sequence_type_set:
+    clingo_theory_sequence_type_e = 1;
+#[doc = "!< Theory lists \"[t1,...,tn]\"."]
+pub const clingo_theory_sequence_type_e_clingo_theory_sequence_type_list:
     clingo_theory_sequence_type_e = 2;
 #[doc = "! Enumeration of theory sequence types."]
 pub type clingo_theory_sequence_type_e = ::std::os::raw::c_uint;
@@ -1925,6 +1956,15 @@ pub const clingo_show_type_e_clingo_show_type_complement: clingo_show_type_e = 3
 pub type clingo_show_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_show_type_e."]
 pub type clingo_show_type_bitset_t = ::std::os::raw::c_uint;
+#[doc = "!< The literal is not a consequence."]
+pub const clingo_consequence_e_clingo_consequence_false: clingo_consequence_e = 0;
+#[doc = "!< The literal is a consequence."]
+pub const clingo_consequence_e_clingo_consequence_true: clingo_consequence_e = 1;
+#[doc = "!< The literal might or might not be a consequence."]
+pub const clingo_consequence_e_clingo_consequence_unknown: clingo_consequence_e = 2;
+#[doc = "! Enumeration for the different consequence types."]
+pub type clingo_consequence_e = ::std::os::raw::c_uint;
+pub type clingo_consequence_t = ::std::os::raw::c_int;
 extern "C" {
     #[doc = "! Get the type of the model.\n!\n! @param[in] model the target\n! @param[out] type the type of the model\n! @return whether the call was successful"]
     pub fn clingo_model_type(model: *const clingo_model_t, type_: *mut clingo_model_type_t)
@@ -1968,12 +2008,28 @@ extern "C" {
     ) -> bool;
 }
 extern "C" {
+    #[doc = "! Check if the given literal is a consequence.\n!\n! While enumerating cautious or brave consequences, there is partial\n! information about which literals are consequences. The current state of a\n! literal can be requested using this function. If this function is used\n! during normal model enumeration, the function just returns whether a\n! literal is true of false in the current model.\n!\n! @param[in] model the target\n! @param[in] literal the literal to lookup\n! @param[out] result whether the literal is a consequence\n! @return whether the call was successful"]
+    pub fn clingo_model_is_consequence(
+        model: *const clingo_model_t,
+        literal: clingo_literal_t,
+        result: *mut clingo_consequence_t,
+    ) -> bool;
+}
+extern "C" {
     #[doc = "! Get the number of cost values of a model.\n!\n! @param[in] model the target\n! @param[out] size the number of costs\n! @return whether the call was successful"]
     pub fn clingo_model_cost_size(model: *const clingo_model_t, size: *mut usize) -> bool;
 }
 extern "C" {
     #[doc = "! Get the cost vector of a model.\n!\n! @param[in] model the target\n! @param[out] costs the resulting costs\n! @param[in] size the number of costs\n! @return whether the call was successful; might set one of the following error codes:\n! - ::clingo_error_bad_alloc\n! - ::clingo_error_runtime if the size is too small\n!\n! @see clingo_model_cost_size()\n! @see clingo_model_optimality_proven()"]
     pub fn clingo_model_cost(model: *const clingo_model_t, costs: *mut i64, size: usize) -> bool;
+}
+extern "C" {
+    #[doc = "! Get the priorities of the costs.\n!\n! The size of the array can be obtained with clingo_model_cost_size().\n!\n! @param[in] model the target\n! @param[out] priorities the resulting priorities\n! @param[in] size the number of priorities\n! @return whether the call was successful; might set one of the following error codes:\n! - ::clingo_error_bad_alloc\n! - ::clingo_error_runtime if the size is too small\n!\n! @see clingo_model_cost_size()"]
+    pub fn clingo_model_priority(
+        model: *const clingo_model_t,
+        priorities: *mut clingo_weight_t,
+        size: usize,
+    ) -> bool;
 }
 extern "C" {
     #[doc = "! Whether the optimality of a model has been proven.\n!\n! @param[in] model the target\n! @param[out] proven whether the optimality has been proven\n! @return whether the call was successful\n!\n! @see clingo_model_cost()"]
@@ -2734,10 +2790,10 @@ pub const clingo_ast_theory_sequence_type_e_clingo_ast_theory_sequence_type_tupl
     clingo_ast_theory_sequence_type_e = 0;
 #[doc = "!< Theory lists \"[t1,...,tn]\"."]
 pub const clingo_ast_theory_sequence_type_e_clingo_ast_theory_sequence_type_list:
-    clingo_ast_theory_sequence_type_e = 1;
+    clingo_ast_theory_sequence_type_e = 2;
 #[doc = "!< Theory sets \"{t1,...,tn}\"."]
 pub const clingo_ast_theory_sequence_type_e_clingo_ast_theory_sequence_type_set:
-    clingo_ast_theory_sequence_type_e = 2;
+    clingo_ast_theory_sequence_type_e = 1;
 #[doc = "! Enumeration of theory sequence types.\n!\n! Same as clingo_theory_sequence_type_e but kept for backward compatibility."]
 pub type clingo_ast_theory_sequence_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_theory_sequence_type_e."]
@@ -2910,6 +2966,7 @@ pub const clingo_ast_type_e_clingo_ast_type_project_atom: clingo_ast_type_e = 41
 pub const clingo_ast_type_e_clingo_ast_type_project_signature: clingo_ast_type_e = 42;
 pub const clingo_ast_type_e_clingo_ast_type_defined: clingo_ast_type_e = 43;
 pub const clingo_ast_type_e_clingo_ast_type_theory_definition: clingo_ast_type_e = 44;
+pub const clingo_ast_type_e_clingo_ast_type_comment: clingo_ast_type_e = 45;
 #[doc = "! Enumeration of AST types."]
 pub type clingo_ast_type_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_type_e."]
@@ -2986,6 +3043,7 @@ pub const clingo_ast_attribute_e_clingo_ast_attribute_terms: clingo_ast_attribut
 pub const clingo_ast_attribute_e_clingo_ast_attribute_value: clingo_ast_attribute_e = 41;
 pub const clingo_ast_attribute_e_clingo_ast_attribute_variable: clingo_ast_attribute_e = 42;
 pub const clingo_ast_attribute_e_clingo_ast_attribute_weight: clingo_ast_attribute_e = 43;
+pub const clingo_ast_attribute_e_clingo_ast_attribute_comment_type: clingo_ast_attribute_e = 44;
 #[doc = "! Enumeration of attributes used by the AST."]
 pub type clingo_ast_attribute_e = ::std::os::raw::c_uint;
 #[doc = "! Corresponding type to ::clingo_ast_attribute_e."]
